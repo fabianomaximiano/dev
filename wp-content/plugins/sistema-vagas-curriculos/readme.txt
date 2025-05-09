@@ -1,0 +1,1 @@
+Plugin de Vagas e Currículos para WordPress.
