@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: Sistema de Vagas e Currículos
- * Description: Plugin para cadastro de vagas e currículos com painel para candidatos.
- * Version: 1.0
+ * Description: Gerencia vagas de emprego e currículos de candidatos.
+ * Version: 1.1
  * Author: Seu Nome
  */
 
