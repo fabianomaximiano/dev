@@ -1,0 +1,35 @@
+[11-May-2025 03:08:14 UTC] PHP Warning:  require_once(C:\xampp\htdocs\dev\wp-content\plugins/includes/formularios.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\dev\wp-content\plugins\plugin.php on line 12
+[11-May-2025 03:08:14 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\dev\wp-content\plugins/includes/formularios.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\dev\wp-content\plugins\plugin.php:12
+Stack trace:
+#0 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(2387): include_once()
+#1 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(673): plugin_sandbox_scrape('plugin.php')
+#2 C:\xampp\htdocs\dev\wp-admin\plugins.php(60): activate_plugin('plugin.php', 'http://localhos...', false)
+#3 {main}
+  thrown in C:\xampp\htdocs\dev\wp-content\plugins\plugin.php on line 12
+[11-May-2025 03:09:25 UTC] PHP Warning:  require_once(C:\xampp\htdocs\dev\wp-content\plugins/includes/formularios.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\dev\wp-content\plugins\plugin.php on line 12
+[11-May-2025 03:09:25 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\dev\wp-content\plugins/includes/formularios.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\dev\wp-content\plugins\plugin.php:12
+Stack trace:
+#0 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(2387): include_once()
+#1 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(673): plugin_sandbox_scrape('plugin.php')
+#2 C:\xampp\htdocs\dev\wp-admin\plugins.php(60): activate_plugin('plugin.php', 'http://localhos...', false)
+#3 {main}
+  thrown in C:\xampp\htdocs\dev\wp-content\plugins\plugin.php on line 12
+[11-May-2025 03:14:57 UTC] PHP Warning:  require_once(C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos-final/vendor/autoload.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos-final\plugin.php on line 11
+[11-May-2025 03:14:57 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos-final/vendor/autoload.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos-final\plugin.php:11
+Stack trace:
+#0 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(2387): include_once()
+#1 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(673): plugin_sandbox_scrape('sistema-vagas-c...')
+#2 C:\xampp\htdocs\dev\wp-admin\plugins.php(60): activate_plugin('sistema-vagas-c...', 'http://localhos...', false)
+#3 {main}
+  thrown in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos-final\plugin.php on line 11
+[11-May-2025 03:39:30 UTC] PHP Warning:  require_once(C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos-final/vendor/autoload.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos-final\plugin.php on line 11
+[11-May-2025 03:39:30 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos-final/vendor/autoload.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos-final\plugin.php:11
+Stack trace:
+#0 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(2387): include_once()
+#1 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(673): plugin_sandbox_scrape('sistema-vagas-c...')
+#2 C:\xampp\htdocs\dev\wp-admin\plugins.php(60): activate_plugin('sistema-vagas-c...', 'http://localhos...', false)
+#3 {main}
+  thrown in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos-final\plugin.php on line 11
+[11-May-2025 03:46:40 UTC] WordPress database error Multiple primary key defined for query ALTER TABLE wp_svc_candidatos CHANGE COLUMN `id` id BIGINT AUTO_INCREMENT PRIMARY KEY made by activate_plugin, do_action('activate_sistema-vagas-curriculos/plugin.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[11-May-2025 03:46:40 UTC] WordPress database error Multiple primary key defined for query ALTER TABLE wp_svc_curriculos CHANGE COLUMN `id` id BIGINT AUTO_INCREMENT PRIMARY KEY made by activate_plugin, do_action('activate_sistema-vagas-curriculos/plugin.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[11-May-2025 03:46:40 UTC] WordPress database error Cannot change column 'candidato_id': used in a foreign key constraint 'wp_svc_curriculos_ibfk_1' for query ALTER TABLE wp_svc_curriculos CHANGE COLUMN `candidato_id` candidato_id BIGINT made by activate_plugin, do_action('activate_sistema-vagas-curriculos/plugin.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
