@@ -1,90 +1,68 @@
 <?php
+if (!defined('ABSPATH')) exit;
+
 function svc_criar_tabelas() {
     global $wpdb;
+    $charset_collate = $wpdb->get_charset_collate();
     require_once ABSPATH . 'wp-admin/includes/upgrade.php';
 
-    $charset = $wpdb->get_charset_collate();
-    $candidatos = $wpdb->prefix . 'svc_candidatos';
-    $curriculos = $wpdb->prefix . 'svc_curriculos';
+    $candidatos     = $wpdb->prefix . 'svc_candidatos';
+    $curriculos     = $wpdb->prefix . 'svc_curriculos';
+    $vagas          = $wpdb->prefix . 'svc_vagas';
+    $candidaturas   = $wpdb->prefix . 'svc_candidaturas';
 
-    dbDelta("CREATE TABLE $candidatos (
-        id BIGINT AUTO_INCREMENT PRIMARY KEY,
-        user_id BIGINT,
-        nome_completo VARCHAR(255),
-        cpf VARCHAR(20) UNIQUE,
-        email VARCHAR(100)
-    ) $charset;");
+    // 1) Tabela de Candidatos
+    dbDelta("
+        CREATE TABLE $candidatos (
+            id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            user_id INT(11) NOT NULL,
+            nome_completo VARCHAR(255) NOT NULL,
+            cpf VARCHAR(20) NOT NULL UNIQUE,
+            email VARCHAR(100) NOT NULL,
+            telefone VARCHAR(20),
+            criado_em DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+        ) $charset_collate;
+    ");
 
-    dbDelta("CREATE TABLE $curriculos (
-        id BIGINT AUTO_INCREMENT PRIMARY KEY,
-        candidato_id BIGINT,
-        dados LONGTEXT
-    ) $charset;");
+    // 2) Tabela de Currículos
+    dbDelta("
+        CREATE TABLE $curriculos (
+            id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            candidato_id INT(11) NOT NULL,
+            objetivo TEXT,
+            experiencias LONGTEXT,
+            formacao LONGTEXT,
+            cursos LONGTEXT,
+            idiomas LONGTEXT,
+            arquivo_curriculo VARCHAR(255),
+            criado_em DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY (candidato_id) REFERENCES $candidatos(id) ON DELETE CASCADE
+        ) $charset_collate;
+    ");
 
-    svc_criar_paginas_padrao();
+    // 3) Tabela de Vagas
+    dbDelta("
+        CREATE TABLE $vagas (
+            id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            titulo VARCHAR(255) NOT NULL,
+            descricao LONGTEXT,
+            requisitos LONGTEXT,
+            diferenciais LONGTEXT,
+            categoria VARCHAR(100),
+            criado_em DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+        ) $charset_collate;
+    ");
+
+    // 4) Tabela de Candidaturas
+    dbDelta("
+        CREATE TABLE $candidaturas (
+            id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            candidato_id INT(11) NOT NULL,
+            vaga_id INT(11) NOT NULL,
+            status VARCHAR(50) NOT NULL DEFAULT 'Em análise',
+            data_candidatura DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY (candidato_id) REFERENCES $candidatos(id) ON DELETE CASCADE,
+            FOREIGN KEY (vaga_id) REFERENCES $vagas(id) ON DELETE CASCADE
+        ) $charset_collate;
+    ");
 }
-
-// function svc_criar_paginas_padrao() {
-//     $paginas = [
-//         'painel-do-candidato' => ['title' => 'Painel do Candidato', 'content' => '[painel_candidato]'],
-//         'meu-curriculo' => ['title' => 'Meu Currículo', 'content' => '[formulario_curriculo]'],
-//         'cadastro-de-candidato' => ['title' => 'Cadastro de Candidato', 'content' => '[formulario_candidato]'],
-//     ];
-//     foreach ($paginas as $slug => $dados) {
-//         if (!get_page_by_path($slug)) {
-//             wp_insert_post([
-//                 'post_title' => $dados['title'],
-//                 'post_name' => $slug,
-//                 'post_content' => $dados['content'],
-//                 'post_status' => 'publish',
-//                 'post_type' => 'page'
-//             ]);
-//         }
-//     }
-// }
-function svc_criar_paginas_padrao() {
-    $paginas = [
-        'vagas' => ['title' => 'Vagas', 'content' => '[listar_vagas]'],
-        'cadastro-de-candidato' => ['title' => 'Cadastro de Candidato', 'content' => '[formulario_candidato]'],
-        'meu-curriculo' => ['title' => 'Meu Currículo', 'content' => '[formulario_curriculo]'],
-        'painel-do-candidato' => ['title' => 'Painel do Candidato', 'content' => '[painel_candidato]'],
-        'cadastrar-vaga' => ['title' => 'Cadastrar Vaga', 'content' => '[formulario_vaga]'],
-    ];
-    foreach ($paginas as $slug => $dados) {
-        if (!get_page_by_path($slug)) {
-            wp_insert_post([
-                'post_title'   => $dados['title'],
-                'post_name'    => $slug,
-                'post_content' => $dados['content'],
-                'post_status'  => 'publish',
-                'post_type'    => 'page'
-            ]);
-        }
-    }
-}
-
-function svc_registrar_post_type_vaga() {
-    register_post_type('vaga', [
-        'label' => 'Vagas',
-        'public' => true,
-        'has_archive' => true,
-        'rewrite' => ['slug' => 'vagas'],
-        'show_in_rest' => true,
-        'supports' => ['title', 'editor'],
-        'taxonomies' => ['category'], // ← aqui
-        'menu_icon' => 'dashicons-businessman'
-    ]);
-}
-
-function svc_criar_categorias_padrao() {
-    $categorias = ['TI', 'RH', 'Financeiro', 'Logística', 'Marketing'];
-
-    foreach ($categorias as $cat) {
-        if (!term_exists($cat, 'category')) {
-            wp_insert_term($cat, 'category');
-        }
-    }
-}
-svc_criar_categorias_padrao();
-
-

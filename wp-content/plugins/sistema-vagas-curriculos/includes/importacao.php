@@ -1,16 +1,31 @@
 <?php
-// Simulação de importação e extração de dados de currículo
+if (!defined('ABSPATH')) exit;
 
-function svc_importar_curriculo($arquivo_tmp) {
-    // Aqui futuramente pode ser implementada a leitura com libraries como PhpWord, Smalot/pdfparser etc.
-    return file_get_contents($arquivo_tmp); // Por enquanto, só retorna o texto bruto
-}
+function svc_importar_curriculo($file) {
+    if (isset($file) && $file['error'] == 0) {
+        $ext = pathinfo($file['name'], PATHINFO_EXTENSION);
+        $permitidas = ['pdf', 'doc', 'docx'];
 
-function svc_extrair_dados_curriculo($conteudo) {
-    // Simulação de extração — pode-se usar expressões regulares ou IA no futuro
-    return [
-        'nome' => 'Nome Detectado',
-        'email' => 'email@detectado.com',
-        'cpf' => '000.000.000-00'
-    ];
+        if (!in_array(strtolower($ext), $permitidas)) {
+            return 'Formato de arquivo não permitido.';
+        }
+
+        $upload_dir = wp_upload_dir();
+        $destino = $upload_dir['basedir'] . '/curriculos/';
+
+        if (!file_exists($destino)) {
+            mkdir($destino, 0755, true);
+        }
+
+        $nome_arquivo = uniqid() . '.' . $ext;
+        $caminho_final = $destino . $nome_arquivo;
+
+        if (move_uploaded_file($file['tmp_name'], $caminho_final)) {
+            return $upload_dir['baseurl'] . '/curriculos/' . $nome_arquivo;
+        } else {
+            return 'Erro ao mover o arquivo.';
+        }
+    }
+
+    return 'Nenhum arquivo enviado.';
 }
