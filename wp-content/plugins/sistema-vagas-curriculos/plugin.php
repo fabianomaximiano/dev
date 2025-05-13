@@ -1,9 +1,9 @@
 <?php
 /**
  * Plugin Name: Sistema de Vagas e Currículos
- * Description: Gerencia vagas de emprego e currículos de candidatos.
- * Version: 1.0
- * Author: Seu Nome
+ * Description: Gerencia vagas de emprego e currículos de candidatos, permitindo candidatura rápida às vagas disponíveis.
+ * Version: 2.0
+ * Author: Fabiano Maximiano
  */
 
 if (!defined('ABSPATH')) exit;
@@ -14,15 +14,15 @@ $arquivos = [
     '/includes/importacao.php',
     '/includes/admin-panel.php',
     '/includes/painel-candidato.php',
-    '/includes/formulario-curriculo.php'
+    '/includes/formulario-curriculo.php',
+    '/includes/formulario-vaga.php',
+    '/includes/listar-vagas.php'
 ];
 
 foreach ($arquivos as $arquivo) {
     $caminho = __DIR__ . $arquivo;
     if (file_exists($caminho)) {
         require_once $caminho;
-    } else {
-        error_log("Arquivo ausente no plugin: " . $arquivo);
     }
 }
 
