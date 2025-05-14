@@ -153,3 +153,155 @@ Stack trace:
 [13-May-2025 21:30:57 UTC] PHP Warning:  include(C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes/partials/curriculo-form-cursos.php): failed to open stream: No such file or directory in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\formulario-curriculo.php on line 12
 [13-May-2025 21:30:57 UTC] PHP Warning:  include(): Failed opening 'C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes/partials/curriculo-form-cursos.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\formulario-curriculo.php on line 12
 [13-May-2025 21:31:08 UTC] PHP Notice:  A função do_shortcode_tag foi chamada <strong>incorretamente</strong>. Tentando analisar um shortcode sem retorno válido: formulario_candidato Leia como <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Depurar o WordPress</a> para mais informações. (Esta mensagem foi adicionada na versão 4.3.0.) in C:\xampp\htdocs\dev\wp-includes\functions.php on line 6121
+[13-May-2025 22:43:30 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "svc_criar_tabelas" not found or invalid function name in C:\xampp\htdocs\dev\wp-includes\class-wp-hook.php:324
+Stack trace:
+#0 C:\xampp\htdocs\dev\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#1 C:\xampp\htdocs\dev\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#2 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(703): do_action('activate_sistem...', false)
+#3 C:\xampp\htdocs\dev\wp-admin\plugins.php(60): activate_plugin('sistema-vagas-c...', 'http://localhos...', false)
+#4 {main}
+  thrown in C:\xampp\htdocs\dev\wp-includes\class-wp-hook.php on line 324
+[13-May-2025 22:49:02 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "svc_criar_tabelas" not found or invalid function name in C:\xampp\htdocs\dev\wp-includes\class-wp-hook.php:324
+Stack trace:
+#0 C:\xampp\htdocs\dev\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#1 C:\xampp\htdocs\dev\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#2 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(703): do_action('activate_sistem...', false)
+#3 C:\xampp\htdocs\dev\wp-admin\plugins.php(60): activate_plugin('sistema-vagas-c...', 'http://localhos...', false)
+#4 {main}
+  thrown in C:\xampp\htdocs\dev\wp-includes\class-wp-hook.php on line 324
+[13-May-2025 23:20:04 UTC] Automatic updates starting...
+[13-May-2025 23:20:04 UTC] Automatic updates complete.
+[14-May-2025 04:00:26 UTC] PHP Warning:  require_once(C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes/includes/menu-filtro.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\functions.php on line 21
+[14-May-2025 04:00:26 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes/includes/menu-filtro.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\functions.php:21
+Stack trace:
+#0 C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\sistema-vagas-curriculos.php(26): require_once()
+#1 C:\xampp\htdocs\dev\wp-settings.php(545): include_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\dev\wp-config.php(112): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\dev\wp-load.php(50): require_once('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\dev\wp-blog-header.php(13): require_once('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\dev\index.php(17): require('C:\\xampp\\htdocs...')
+#6 {main}
+  thrown in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\functions.php on line 21
+[14-May-2025 04:12:32 UTC] PHP Warning:  require_once(C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes/includes/menu-filtro.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\functions.php on line 21
+[14-May-2025 04:12:32 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes/includes/menu-filtro.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\functions.php:21
+Stack trace:
+#0 C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\sistema-vagas-curriculos.php(26): require_once()
+#1 C:\xampp\htdocs\dev\wp-settings.php(545): include_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\dev\wp-config.php(112): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\dev\wp-load.php(50): require_once('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\dev\wp-admin\admin-ajax.php(22): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+  thrown in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\functions.php on line 21
+[14-May-2025 04:12:50 UTC] PHP Warning:  require_once(C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes/includes/menu-filtro.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\functions.php on line 21
+[14-May-2025 04:12:50 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes/includes/menu-filtro.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\functions.php:21
+Stack trace:
+#0 C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\sistema-vagas-curriculos.php(26): require_once()
+#1 C:\xampp\htdocs\dev\wp-settings.php(545): include_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\dev\wp-config.php(112): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\dev\wp-load.php(50): require_once('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\dev\wp-blog-header.php(13): require_once('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\dev\index.php(17): require('C:\\xampp\\htdocs...')
+#6 {main}
+  thrown in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\functions.php on line 21
+[14-May-2025 04:13:31 UTC] PHP Warning:  require_once(C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes/includes/menu-filtro.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\functions.php on line 21
+[14-May-2025 04:13:31 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes/includes/menu-filtro.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\functions.php:21
+Stack trace:
+#0 C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\sistema-vagas-curriculos.php(26): require_once()
+#1 C:\xampp\htdocs\dev\wp-settings.php(545): include_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\dev\wp-config.php(112): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\dev\wp-load.php(50): require_once('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\dev\wp-admin\admin-ajax.php(22): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+  thrown in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\functions.php on line 21
+[14-May-2025 04:13:33 UTC] PHP Warning:  require_once(C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes/includes/menu-filtro.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\functions.php on line 21
+[14-May-2025 04:13:33 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes/includes/menu-filtro.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\functions.php:21
+Stack trace:
+#0 C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\sistema-vagas-curriculos.php(26): require_once()
+#1 C:\xampp\htdocs\dev\wp-settings.php(545): include_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\dev\wp-config.php(112): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\dev\wp-load.php(50): require_once('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\dev\wp-admin\admin.php(35): require_once('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\dev\wp-admin\plugins.php(10): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+  thrown in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\functions.php on line 21
+[14-May-2025 04:18:19 UTC] PHP Warning:  require_once(C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes/includes/menu-filtro.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes\functions.php on line 21
+[14-May-2025 04:18:19 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes/includes/menu-filtro.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes\functions.php:21
+Stack trace:
+#0 C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\sistema-vagas-curriculos.php(26): require_once()
+#1 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(2387): include_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(673): plugin_sandbox_scrape('sistema-vagas-c...')
+#3 C:\xampp\htdocs\dev\wp-admin\plugins.php(60): activate_plugin('sistema-vagas-c...', 'http://localhos...', false)
+#4 {main}
+  thrown in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes\functions.php on line 21
+[14-May-2025 04:29:04 UTC] PHP Warning:  require_once(C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes/includes/menu-filtro.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes\functions.php on line 21
+[14-May-2025 04:29:04 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes/includes/menu-filtro.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes\functions.php:21
+Stack trace:
+#0 C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\sistema-vagas-curriculos.php(26): require_once()
+#1 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(2387): include_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(673): plugin_sandbox_scrape('sistema-vagas-c...')
+#3 C:\xampp\htdocs\dev\wp-admin\plugins.php(60): activate_plugin('sistema-vagas-c...', 'http://localhos...', false)
+#4 {main}
+  thrown in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes\functions.php on line 21
+[14-May-2025 04:29:11 UTC] PHP Warning:  require_once(C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes/includes/menu-filtro.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes\functions.php on line 21
+[14-May-2025 04:29:11 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes/includes/menu-filtro.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes\functions.php:21
+Stack trace:
+#0 C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\sistema-vagas-curriculos.php(26): require_once()
+#1 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(2387): include_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(673): plugin_sandbox_scrape('sistema-vagas-c...')
+#3 C:\xampp\htdocs\dev\wp-admin\plugins.php(60): activate_plugin('sistema-vagas-c...', 'http://localhos...', false)
+#4 {main}
+  thrown in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes\functions.php on line 21
+[14-May-2025 04:33:13 UTC] PHP Warning:  require_once(C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes/includes/menu-filtro.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes\functions.php on line 21
+[14-May-2025 04:33:13 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes/includes/menu-filtro.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes\functions.php:21
+Stack trace:
+#0 C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\sistema-vagas-curriculos.php(26): require_once()
+#1 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(2387): include_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(673): plugin_sandbox_scrape('sistema-vagas-c...')
+#3 C:\xampp\htdocs\dev\wp-admin\plugins.php(60): activate_plugin('sistema-vagas-c...', 'http://localhos...', false)
+#4 {main}
+  thrown in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes\functions.php on line 21
+[14-May-2025 04:37:17 UTC] PHP Warning:  require_once(C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes/includes/menu-filtro.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes\functions.php on line 21
+[14-May-2025 04:37:17 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes/includes/menu-filtro.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes\functions.php:21
+Stack trace:
+#0 C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\sistema-vagas-curriculos.php(26): require_once()
+#1 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(2387): include_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(673): plugin_sandbox_scrape('sistema-vagas-c...')
+#3 C:\xampp\htdocs\dev\wp-admin\plugins.php(60): activate_plugin('sistema-vagas-c...', 'http://localhos...', false)
+#4 {main}
+  thrown in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes\functions.php on line 21
+[14-May-2025 04:53:15 UTC] PHP Warning:  require_once(C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes/includes/menu-filtro.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes\functions.php on line 21
+[14-May-2025 04:53:15 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes/includes/menu-filtro.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes\functions.php:21
+Stack trace:
+#0 C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\sistema-vagas-curriculos.php(26): require_once()
+#1 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(2387): include_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(673): plugin_sandbox_scrape('sistema-vagas-c...')
+#3 C:\xampp\htdocs\dev\wp-admin\plugins.php(60): activate_plugin('sistema-vagas-c...', 'http://localhos...', false)
+#4 {main}
+  thrown in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes\functions.php on line 21
+[14-May-2025 04:54:12 UTC] PHP Warning:  require_once(C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes/includes/menu-filtro.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes\functions.php on line 21
+[14-May-2025 04:54:12 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes/includes/menu-filtro.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes\functions.php:21
+Stack trace:
+#0 C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\sistema-vagas-curriculos.php(26): require_once()
+#1 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(2387): include_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(673): plugin_sandbox_scrape('sistema-vagas-c...')
+#3 C:\xampp\htdocs\dev\wp-admin\plugins.php(60): activate_plugin('sistema-vagas-c...', 'http://localhos...', false)
+#4 {main}
+  thrown in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes\functions.php on line 21
+[14-May-2025 05:01:48 UTC] PHP Warning:  require_once(C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includesshortcodes.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\functions.php on line 43
+[14-May-2025 05:01:48 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includesshortcodes.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\functions.php:43
+Stack trace:
+#0 C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\sistema-vagas-curriculos.php(26): require_once()
+#1 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(2387): include_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(673): plugin_sandbox_scrape('sistema-vagas-c...')
+#3 C:\xampp\htdocs\dev\wp-admin\plugins.php(60): activate_plugin('sistema-vagas-c...', 'http://localhos...', false)
+#4 {main}
+  thrown in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\functions.php on line 43
+[14-May-2025 05:01:53 UTC] PHP Fatal error:  Uncaught Error: Undefined constant "_DIR_" in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes\functions.php:33
+Stack trace:
+#0 C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\sistema-vagas-curriculos.php(26): require_once()
+#1 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(2387): include_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(673): plugin_sandbox_scrape('sistema-vagas-c...')
+#3 C:\xampp\htdocs\dev\wp-admin\plugins.php(60): activate_plugin('sistema-vagas-c...', 'http://localhos...', false)
+#4 {main}
+  thrown in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes\functions.php on line 33
+[14-May-2025 05:11:37 UTC] PHP Fatal error:  Cannot redeclare svc_instalacao_completa() (previously declared in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\ativacao.php:5) in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes\ativacao.php on line 78
