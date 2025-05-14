@@ -32,3 +32,8 @@
         // Ativação completa do plugin (tabelas + páginas)
         register_activation_hook(__FILE__, 'svc_instalacao_completa');
 
+if (!function_exists('media_handle_upload')) {
+    require_once ABSPATH . 'wp-admin/includes/file.php';
+    require_once ABSPATH . 'wp-admin/includes/media.php';
+    require_once ABSPATH . 'wp-admin/includes/image.php';
+}

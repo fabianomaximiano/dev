@@ -44,3 +44,33 @@
 
         // Importa shortcodes (ex: menu_candidato, logout)
         require_once __DIR__ . '/shortcodes.php';
+
+ /**
+ * Registra os templates do plugin como opções no editor de páginas
+ */
+add_filter('theme_page_templates', 'svc_registrar_templates_plugin');
+
+function svc_registrar_templates_plugin($templates) {
+    $templates['template-lista-vagas.php'] = 'Lista de Vagas';
+    $templates['template-painel-candidato.php'] = 'Painel do Candidato';
+    return $templates;
+}
+
+/**
+ * Aponta para os templates do plugin quando selecionados
+ */
+add_filter('template_include', 'svc_carregar_template_plugin');
+
+function svc_carregar_template_plugin($template) {
+    if (is_page()) {
+        $modelo = get_page_template_slug();
+        $caminho_personalizado = plugin_dir_path(__FILE__) . '../templates/' . $modelo;
+
+        if ($modelo && file_exists($caminho_personalizado)) {
+            return $caminho_personalizado;
+        }
+    }
+
+    return $template;
+}
+

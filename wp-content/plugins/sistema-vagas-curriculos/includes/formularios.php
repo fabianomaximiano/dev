@@ -1,27 +1,78 @@
 <?php
 if (!defined('ABSPATH')) exit;
 
-// Shortcodes
-add_shortcode('formulario_candidato', 'svc_formulario_candidato_shortcode');
-add_shortcode('formulario_curriculo', 'svc_formulario_curriculo_shortcode');
-add_shortcode('formulario_vaga', 'svc_formulario_vaga_shortcode');
-add_shortcode('painel_candidato', 'svc_painel_candidato_shortcode');
-add_shortcode('listar_vagas', 'svc_listar_vagas_shortcode');
+/**
+ * Shortcode: [formulario_candidato]
+ * Formulário de cadastro de candidatos
+ */
+add_shortcode('formulario_candidato', 'svc_formulario_candidato');
 
-// Scripts e estilos
-function svc_enqueue_scripts() {
-    wp_enqueue_style('bootstrap-css', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css');
-    wp_enqueue_script('jquery-mask', 'https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js', ['jquery'], null, true);
-    wp_enqueue_script('validacao-svc', plugin_dir_url(__FILE__) . '../assets/js/validacao.js', ['jquery'], null, true);
+function svc_formulario_candidato() {
+    ob_start();
 
-    wp_enqueue_script('bootstrap-js', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js', ['jquery'], null, true);
-}
-add_action('wp_enqueue_scripts', 'svc_enqueue_scripts');
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cpf'])) {
+        global $wpdb;
 
-// Redirecionamento após cadastro
-function svc_redirecionar_apos_cadastro() {
-    if (isset($_GET['cadastro']) && $_GET['cadastro'] == 'sucesso') {
-        echo "<script>window.location.href = '" . site_url('/cadastro-de-curriculo') . "';</script>";
+        $cpf    = sanitize_text_field($_POST['cpf']);
+        $email  = sanitize_email($_POST['email']);
+        $nome   = sanitize_text_field($_POST['nome_completo']);
+        $tel    = sanitize_text_field($_POST['telefone']);
+        $user_id = get_current_user_id();
+
+        $tabela = $wpdb->prefix . 'svc_candidatos';
+        $existe = $wpdb->get_var($wpdb->prepare("SELECT id FROM $tabela WHERE cpf = %s", $cpf));
+
+        if ($existe) {
+            echo '<div class="alert alert-danger">CPF já cadastrado.</div>';
+        } else {
+            $wpdb->insert($tabela, [
+                'user_id'       => $user_id,
+                'nome_completo' => $nome,
+                'cpf'           => $cpf,
+                'email'         => $email,
+                'telefone'      => $tel,
+                'criado_em'     => current_time('mysql')
+            ]);
+
+            // Envia e-mail para admin e candidato
+            $admin_email = get_option('admin_email');
+            $assunto = 'Novo Cadastro de Candidato';
+            $mensagem = "Nome: $nome\nCPF: $cpf\nEmail: $email\nTelefone: $tel";
+
+            wp_mail($admin_email, $assunto, $mensagem);
+            wp_mail($email, 'Confirmação de Cadastro', "Seu cadastro foi realizado com sucesso!");
+
+            // Redireciona para formulário de currículo
+            wp_redirect(site_url('/meu-curriculo'));
+            exit;
+        }
     }
+
+    ?>
+    <form method="post" class="needs-validation" novalidate>
+        <div class="form-group">
+            <label>Nome completo</label>
+            <input type="text" name="nome_completo" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label>CPF</label>
+            <input type="text" name="cpf" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label>Telefone</label>
+            <input type="text" name="telefone" class="form-control" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
+    </form>
+    <?php
+
+    return ob_get_clean();
 }
-add_action('wp_footer', 'svc_redirecionar_apos_cadastro');

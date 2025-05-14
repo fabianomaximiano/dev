@@ -1,23 +1,53 @@
 <?php
 if (!defined('ABSPATH')) exit;
 
-function svc_admin_menu() {
-    add_menu_page('Gerenciar Vagas', 'Vagas', 'manage_options', 'svc_vagas', 'svc_listar_vagas_admin');
+/**
+ * Adiciona menu administrativo personalizado
+ */
+add_action('admin_menu', 'svc_adicionar_menu_admin');
+
+function svc_adicionar_menu_admin() {
+    // Menu principal: Vagas
+    add_menu_page(
+        'Gerenciar Vagas',
+        'Vagas',
+        'manage_options',
+        'svc_vagas',
+        '__return_null',
+        'dashicons-businessman',
+        6
+    );
+
+    // Submenu: Currículos (admin)
+    add_submenu_page(
+        'svc_vagas',
+        'Currículos',
+        'Currículos',
+        'manage_options',
+        'svc_curriculos',
+        '__return_null'
+    );
+
+    // Submenu: Painel do Candidato (acesso externo)
+    add_submenu_page(
+        'svc_vagas',
+        'Painel do Candidato',
+        'Painel do Candidato',
+        'read',
+        'painel-candidato',
+        'svc_redirecionar_para_painel'
+    );
 }
-add_action('admin_menu', 'svc_admin_menu');
 
-function svc_listar_vagas_admin() {
-    global $wpdb;
-    $tabela = $wpdb->prefix . 'svc_vagas';
-    $vagas = $wpdb->get_results("SELECT * FROM $tabela ORDER BY criado_em DESC");
-
-    echo '<div class="wrap"><h1>Vagas Cadastradas</h1><table class="widefat"><thead><tr><th>Título</th><th>Categoria</th><th>Data</th></tr></thead><tbody>';
-    foreach ($vagas as $vaga) {
-        echo '<tr>';
-        echo '<td>' . esc_html($vaga->titulo) . '</td>';
-        echo '<td>' . esc_html($vaga->categoria) . '</td>';
-        echo '<td>' . esc_html(date('d/m/Y H:i', strtotime($vaga->criado_em))) . '</td>';
-        echo '</tr>';
+/**
+ * Redireciona submenu “Painel do Candidato” para a página externa
+ */
+function svc_redirecionar_para_painel() {
+    $pagina = get_page_by_path('painel-do-candidato');
+    if ($pagina) {
+        wp_redirect(get_permalink($pagina));
+        exit;
+    } else {
+        echo '<div class="notice notice-error"><p>Página "Painel do Candidato" não encontrada.</p></div>';
     }
-    echo '</tbody></table></div>';
 }
