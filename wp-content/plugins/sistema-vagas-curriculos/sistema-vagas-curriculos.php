@@ -37,3 +37,4 @@ if (!function_exists('media_handle_upload')) {
     require_once ABSPATH . 'wp-admin/includes/media.php';
     require_once ABSPATH . 'wp-admin/includes/image.php';
 }
+register_activation_hook(__FILE__, 'svc_criar_tabelas');

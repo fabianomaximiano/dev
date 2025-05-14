@@ -1,12 +1,10 @@
 <?php
 if (!defined('ABSPATH')) exit;
 
-add_shortcode('formulario_vaga', 'svc_formulario_vaga');
-
 function svc_formulario_vaga() {
-    if (!current_user_can('manage_options')) {
-        return '<div class="alert alert-danger">Apenas administradores podem cadastrar vagas.</div>';
-    }
+    global $wpdb;
+
+    $mensagem = '';
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['titulo'])) {
         $titulo       = sanitize_text_field($_POST['titulo']);
@@ -15,53 +13,59 @@ function svc_formulario_vaga() {
         $diferenciais = sanitize_textarea_field($_POST['diferenciais']);
         $categoria    = sanitize_text_field($_POST['categoria']);
 
-        $post_id = wp_insert_post([
-            'post_title'   => $titulo,
-            'post_content' => $descricao,
-            'post_status'  => 'publish',
-            'post_type'    => 'post'
-        ]);
+        $inserido = $wpdb->insert(
+            "{$wpdb->prefix}svc_vagas",
+            [
+                'titulo'        => $titulo,
+                'descricao'     => $descricao,
+                'requisitos'    => $requisitos,
+                'diferenciais'  => $diferenciais,
+                'categoria'     => $categoria,
+                'criado_em'     => current_time('mysql')
+            ]
+        );
 
-        if ($post_id) {
-            update_post_meta($post_id, 'requisitos', $requisitos);
-            update_post_meta($post_id, 'diferenciais', $diferenciais);
-            update_post_meta($post_id, 'categoria', $categoria);
-
-            echo '<div class="alert alert-success">Vaga cadastrada com sucesso.</div>';
+        if ($inserido) {
+            $mensagem = '<div class="alert alert-success">Vaga cadastrada com sucesso!</div>';
         } else {
-            echo '<div class="alert alert-danger">Erro ao cadastrar vaga.</div>';
+            $mensagem = '<div class="alert alert-danger">Erro ao cadastrar a vaga.</div>';
         }
     }
 
-    ob_start(); ?>
+    ob_start();
+    echo $mensagem;
+    ?>
+
     <form method="post" class="needs-validation" novalidate>
         <div class="form-group">
-            <label>Título da vaga</label>
-            <input type="text" name="titulo" class="form-control" required>
+            <label for="titulo">Título da vaga</label>
+            <input type="text" name="titulo" id="titulo" class="form-control" required>
         </div>
 
         <div class="form-group">
-            <label>Descrição</label>
-            <textarea name="descricao" class="form-control" rows="4" required></textarea>
+            <label for="descricao">Descrição</label>
+            <textarea name="descricao" id="descricao" class="form-control" rows="4" required></textarea>
         </div>
 
         <div class="form-group">
-            <label>Requisitos</label>
-            <textarea name="requisitos" class="form-control" rows="3" required></textarea>
+            <label for="requisitos">Requisitos</label>
+            <textarea name="requisitos" id="requisitos" class="form-control" rows="3" required></textarea>
         </div>
 
         <div class="form-group">
-            <label>Diferenciais</label>
-            <textarea name="diferenciais" class="form-control" rows="2"></textarea>
+            <label for="diferenciais">Diferenciais</label>
+            <textarea name="diferenciais" id="diferenciais" class="form-control" rows="3"></textarea>
         </div>
 
         <div class="form-group">
-            <label>Categoria</label>
-            <input type="text" name="categoria" class="form-control" required>
+            <label for="categoria">Categoria da vaga</label>
+            <input type="text" name="categoria" id="categoria" class="form-control" required>
         </div>
 
         <button type="submit" class="btn btn-primary">Cadastrar Vaga</button>
     </form>
+
     <?php
     return ob_get_clean();
 }
+add_shortcode('formulario_vaga', 'svc_formulario_vaga');
