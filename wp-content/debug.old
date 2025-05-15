@@ -1,0 +1,370 @@
+[11-May-2025 03:08:14 UTC] PHP Warning:  require_once(C:\xampp\htdocs\dev\wp-content\plugins/includes/formularios.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\dev\wp-content\plugins\plugin.php on line 12
+[11-May-2025 03:08:14 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\dev\wp-content\plugins/includes/formularios.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\dev\wp-content\plugins\plugin.php:12
+Stack trace:
+#0 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(2387): include_once()
+#1 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(673): plugin_sandbox_scrape('plugin.php')
+#2 C:\xampp\htdocs\dev\wp-admin\plugins.php(60): activate_plugin('plugin.php', 'http://localhos...', false)
+#3 {main}
+  thrown in C:\xampp\htdocs\dev\wp-content\plugins\plugin.php on line 12
+[11-May-2025 03:09:25 UTC] PHP Warning:  require_once(C:\xampp\htdocs\dev\wp-content\plugins/includes/formularios.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\dev\wp-content\plugins\plugin.php on line 12
+[11-May-2025 03:09:25 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\dev\wp-content\plugins/includes/formularios.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\dev\wp-content\plugins\plugin.php:12
+Stack trace:
+#0 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(2387): include_once()
+#1 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(673): plugin_sandbox_scrape('plugin.php')
+#2 C:\xampp\htdocs\dev\wp-admin\plugins.php(60): activate_plugin('plugin.php', 'http://localhos...', false)
+#3 {main}
+  thrown in C:\xampp\htdocs\dev\wp-content\plugins\plugin.php on line 12
+[11-May-2025 03:14:57 UTC] PHP Warning:  require_once(C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos-final/vendor/autoload.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos-final\plugin.php on line 11
+[11-May-2025 03:14:57 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos-final/vendor/autoload.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos-final\plugin.php:11
+Stack trace:
+#0 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(2387): include_once()
+#1 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(673): plugin_sandbox_scrape('sistema-vagas-c...')
+#2 C:\xampp\htdocs\dev\wp-admin\plugins.php(60): activate_plugin('sistema-vagas-c...', 'http://localhos...', false)
+#3 {main}
+  thrown in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos-final\plugin.php on line 11
+[11-May-2025 03:39:30 UTC] PHP Warning:  require_once(C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos-final/vendor/autoload.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos-final\plugin.php on line 11
+[11-May-2025 03:39:30 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos-final/vendor/autoload.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos-final\plugin.php:11
+Stack trace:
+#0 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(2387): include_once()
+#1 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(673): plugin_sandbox_scrape('sistema-vagas-c...')
+#2 C:\xampp\htdocs\dev\wp-admin\plugins.php(60): activate_plugin('sistema-vagas-c...', 'http://localhos...', false)
+#3 {main}
+  thrown in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos-final\plugin.php on line 11
+[11-May-2025 03:46:40 UTC] WordPress database error Multiple primary key defined for query ALTER TABLE wp_svc_candidatos CHANGE COLUMN `id` id BIGINT AUTO_INCREMENT PRIMARY KEY made by activate_plugin, do_action('activate_sistema-vagas-curriculos/plugin.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[11-May-2025 03:46:40 UTC] WordPress database error Multiple primary key defined for query ALTER TABLE wp_svc_curriculos CHANGE COLUMN `id` id BIGINT AUTO_INCREMENT PRIMARY KEY made by activate_plugin, do_action('activate_sistema-vagas-curriculos/plugin.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[11-May-2025 03:46:40 UTC] WordPress database error Cannot change column 'candidato_id': used in a foreign key constraint 'wp_svc_curriculos_ibfk_1' for query ALTER TABLE wp_svc_curriculos CHANGE COLUMN `candidato_id` candidato_id BIGINT made by activate_plugin, do_action('activate_sistema-vagas-curriculos/plugin.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[13-May-2025 14:33:22 UTC] Automatic updates starting...
+[13-May-2025 14:33:23 UTC] Automatic updates complete.
+[13-May-2025 16:45:52 UTC] WordPress database error Multiple primary key defined for query ALTER TABLE wp_svc_candidatos CHANGE COLUMN `id` id INT AUTO_INCREMENT PRIMARY KEY made by activate_plugin, do_action('activate_sistema-vagas-curriculos/plugin.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[13-May-2025 16:45:53 UTC] WordPress database error Multiple primary key defined for query ALTER TABLE wp_svc_curriculos CHANGE COLUMN `id` id INT AUTO_INCREMENT PRIMARY KEY made by activate_plugin, do_action('activate_sistema-vagas-curriculos/plugin.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[13-May-2025 16:45:53 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FOREIGN KEY (candidato_id) REFERENCES wp_svc_candidatos(id) ON DELETE CASCADE' at line 1 for query ALTER TABLE wp_svc_curriculos ADD COLUMN FOREIGN KEY (candidato_id) REFERENCES wp_svc_candidatos(id) ON DELETE CASCADE made by activate_plugin, do_action('activate_sistema-vagas-curriculos/plugin.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[13-May-2025 16:45:54 UTC] WordPress database error Can't create table `dev`.`wp_svc_candidaturas` (errno: 150 "Foreign key constraint is incorrectly formed") for query CREATE TABLE wp_svc_candidaturas (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        candidato_id INT NOT NULL,
+        vaga_id INT NOT NULL,
+        status VARCHAR(50) DEFAULT 'Recebido',
+        data_candidatura DATETIME DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY (candidato_id) REFERENCES wp_svc_candidatos(id) ON DELETE CASCADE,
+        FOREIGN KEY (vaga_id) REFERENCES wp_svc_vagas(id) ON DELETE CASCADE
+    ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci made by activate_plugin, do_action('activate_sistema-vagas-curriculos/plugin.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[13-May-2025 17:20:03 UTC] WordPress database error Multiple primary key defined for query ALTER TABLE wp_svc_candidatos CHANGE COLUMN `id` id BIGINT(20) UNSIGNED AUTO_INCREMENT PRIMARY KEY made by activate_plugin, do_action('activate_sistema-vagas-curriculos/sistema-vagas-curriculos.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[13-May-2025 17:20:06 UTC] WordPress database error Multiple primary key defined for query ALTER TABLE wp_svc_curriculos CHANGE COLUMN `id` id BIGINT(20) UNSIGNED AUTO_INCREMENT PRIMARY KEY made by activate_plugin, do_action('activate_sistema-vagas-curriculos/sistema-vagas-curriculos.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[13-May-2025 17:20:08 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FOREIGN KEY (candidato_id) REFERENCES wp_svc_candidatos(id) ON DELETE CASCADE' at line 1 for query ALTER TABLE wp_svc_curriculos ADD COLUMN FOREIGN KEY (candidato_id) REFERENCES wp_svc_candidatos(id) ON DELETE CASCADE made by activate_plugin, do_action('activate_sistema-vagas-curriculos/sistema-vagas-curriculos.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[13-May-2025 17:20:08 UTC] WordPress database error Multiple primary key defined for query ALTER TABLE wp_svc_vagas CHANGE COLUMN `id` id BIGINT(20) UNSIGNED AUTO_INCREMENT PRIMARY KEY made by activate_plugin, do_action('activate_sistema-vagas-curriculos/sistema-vagas-curriculos.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[13-May-2025 17:20:12 UTC] WordPress database error Can't create table `dev`.`wp_svc_candidaturas` (errno: 150 "Foreign key constraint is incorrectly formed") for query 
+        CREATE TABLE wp_svc_candidaturas (
+            id BIGINT(20) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+            candidato_id BIGINT(20) UNSIGNED NOT NULL,
+            vaga_id BIGINT(20) UNSIGNED NOT NULL,
+            status VARCHAR(50) NOT NULL DEFAULT 'Em análise',
+            data_candidatura DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY (candidato_id) REFERENCES wp_svc_candidatos(id) ON DELETE CASCADE,
+            FOREIGN KEY (vaga_id)      REFERENCES wp_svc_vagas(id)      ON DELETE CASCADE
+        ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci made by activate_plugin, do_action('activate_sistema-vagas-curriculos/sistema-vagas-curriculos.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[13-May-2025 17:21:52 UTC] WordPress database error Multiple primary key defined for query ALTER TABLE wp_svc_candidatos CHANGE COLUMN `id` id BIGINT(20) UNSIGNED AUTO_INCREMENT PRIMARY KEY made by activate_plugin, do_action('activate_sistema-vagas-curriculos/sistema-vagas-curriculos.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[13-May-2025 17:21:53 UTC] WordPress database error Multiple primary key defined for query ALTER TABLE wp_svc_curriculos CHANGE COLUMN `id` id BIGINT(20) UNSIGNED AUTO_INCREMENT PRIMARY KEY made by activate_plugin, do_action('activate_sistema-vagas-curriculos/sistema-vagas-curriculos.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[13-May-2025 17:21:53 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FOREIGN KEY (candidato_id) REFERENCES wp_svc_candidatos(id) ON DELETE CASCADE' at line 1 for query ALTER TABLE wp_svc_curriculos ADD COLUMN FOREIGN KEY (candidato_id) REFERENCES wp_svc_candidatos(id) ON DELETE CASCADE made by activate_plugin, do_action('activate_sistema-vagas-curriculos/sistema-vagas-curriculos.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[13-May-2025 17:21:53 UTC] WordPress database error Multiple primary key defined for query ALTER TABLE wp_svc_vagas CHANGE COLUMN `id` id BIGINT(20) UNSIGNED AUTO_INCREMENT PRIMARY KEY made by activate_plugin, do_action('activate_sistema-vagas-curriculos/sistema-vagas-curriculos.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[13-May-2025 17:21:53 UTC] WordPress database error Can't create table `dev`.`wp_svc_candidaturas` (errno: 150 "Foreign key constraint is incorrectly formed") for query 
+        CREATE TABLE wp_svc_candidaturas (
+            id BIGINT(20) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+            candidato_id BIGINT(20) UNSIGNED NOT NULL,
+            vaga_id BIGINT(20) UNSIGNED NOT NULL,
+            status VARCHAR(50) NOT NULL DEFAULT 'Em análise',
+            data_candidatura DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY (candidato_id) REFERENCES wp_svc_candidatos(id) ON DELETE CASCADE,
+            FOREIGN KEY (vaga_id)      REFERENCES wp_svc_vagas(id)      ON DELETE CASCADE
+        ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci made by activate_plugin, do_action('activate_sistema-vagas-curriculos/sistema-vagas-curriculos.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[13-May-2025 17:26:45 UTC] WordPress database error Multiple primary key defined for query ALTER TABLE wp_svc_candidatos CHANGE COLUMN `id` id BIGINT(20) UNSIGNED AUTO_INCREMENT PRIMARY KEY made by activate_plugin, do_action('activate_sistema-vagas-curriculos/sistema-vagas-curriculos.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[13-May-2025 17:26:45 UTC] WordPress database error Multiple primary key defined for query ALTER TABLE wp_svc_curriculos CHANGE COLUMN `id` id BIGINT(20) UNSIGNED AUTO_INCREMENT PRIMARY KEY made by activate_plugin, do_action('activate_sistema-vagas-curriculos/sistema-vagas-curriculos.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[13-May-2025 17:26:46 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FOREIGN KEY (candidato_id) REFERENCES wp_svc_candidatos(id) ON DELETE CASCADE' at line 1 for query ALTER TABLE wp_svc_curriculos ADD COLUMN FOREIGN KEY (candidato_id) REFERENCES wp_svc_candidatos(id) ON DELETE CASCADE made by activate_plugin, do_action('activate_sistema-vagas-curriculos/sistema-vagas-curriculos.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[13-May-2025 17:26:46 UTC] WordPress database error Multiple primary key defined for query ALTER TABLE wp_svc_vagas CHANGE COLUMN `id` id BIGINT(20) UNSIGNED AUTO_INCREMENT PRIMARY KEY made by activate_plugin, do_action('activate_sistema-vagas-curriculos/sistema-vagas-curriculos.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[13-May-2025 17:26:46 UTC] WordPress database error Can't create table `dev`.`wp_svc_candidaturas` (errno: 150 "Foreign key constraint is incorrectly formed") for query 
+        CREATE TABLE wp_svc_candidaturas (
+            id BIGINT(20) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+            candidato_id BIGINT(20) UNSIGNED NOT NULL,
+            vaga_id BIGINT(20) UNSIGNED NOT NULL,
+            status VARCHAR(50) NOT NULL DEFAULT 'Em análise',
+            data_candidatura DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY (candidato_id) REFERENCES wp_svc_candidatos(id) ON DELETE CASCADE,
+            FOREIGN KEY (vaga_id)      REFERENCES wp_svc_vagas(id)      ON DELETE CASCADE
+        ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci made by activate_plugin, do_action('activate_sistema-vagas-curriculos/sistema-vagas-curriculos.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[13-May-2025 17:28:29 UTC] WordPress database error Multiple primary key defined for query ALTER TABLE wp_svc_candidatos CHANGE COLUMN `id` id BIGINT(20) UNSIGNED AUTO_INCREMENT PRIMARY KEY made by activate_plugin, do_action('activate_sistema-vagas-curriculos/sistema-vagas-curriculos.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[13-May-2025 17:28:29 UTC] WordPress database error Multiple primary key defined for query ALTER TABLE wp_svc_curriculos CHANGE COLUMN `id` id BIGINT(20) UNSIGNED AUTO_INCREMENT PRIMARY KEY made by activate_plugin, do_action('activate_sistema-vagas-curriculos/sistema-vagas-curriculos.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[13-May-2025 17:28:30 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FOREIGN KEY (candidato_id) REFERENCES wp_svc_candidatos(id) ON DELETE CASCADE' at line 1 for query ALTER TABLE wp_svc_curriculos ADD COLUMN FOREIGN KEY (candidato_id) REFERENCES wp_svc_candidatos(id) ON DELETE CASCADE made by activate_plugin, do_action('activate_sistema-vagas-curriculos/sistema-vagas-curriculos.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[13-May-2025 17:28:30 UTC] WordPress database error Multiple primary key defined for query ALTER TABLE wp_svc_vagas CHANGE COLUMN `id` id BIGINT(20) UNSIGNED AUTO_INCREMENT PRIMARY KEY made by activate_plugin, do_action('activate_sistema-vagas-curriculos/sistema-vagas-curriculos.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[13-May-2025 17:28:30 UTC] WordPress database error Can't create table `dev`.`wp_svc_candidaturas` (errno: 150 "Foreign key constraint is incorrectly formed") for query 
+        CREATE TABLE wp_svc_candidaturas (
+            id BIGINT(20) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+            candidato_id BIGINT(20) UNSIGNED NOT NULL,
+            vaga_id BIGINT(20) UNSIGNED NOT NULL,
+            status VARCHAR(50) NOT NULL DEFAULT 'Em análise',
+            data_candidatura DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY (candidato_id) REFERENCES wp_svc_candidatos(id) ON DELETE CASCADE,
+            FOREIGN KEY (vaga_id)      REFERENCES wp_svc_vagas(id)      ON DELETE CASCADE
+        ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci made by activate_plugin, do_action('activate_sistema-vagas-curriculos/sistema-vagas-curriculos.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[13-May-2025 17:52:14 UTC] WordPress database error Multiple primary key defined for query ALTER TABLE wp_svc_candidatos CHANGE COLUMN `id` id INT(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY made by activate_plugin, do_action('activate_sistema-vagas-curriculos/sistema-vagas-curriculos.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[13-May-2025 17:52:15 UTC] WordPress database error Multiple primary key defined for query ALTER TABLE wp_svc_curriculos CHANGE COLUMN `id` id INT(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY made by activate_plugin, do_action('activate_sistema-vagas-curriculos/sistema-vagas-curriculos.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[13-May-2025 17:52:16 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FOREIGN KEY (candidato_id) REFERENCES wp_svc_candidatos(id) ON DELETE CASCADE' at line 1 for query ALTER TABLE wp_svc_curriculos ADD COLUMN FOREIGN KEY (candidato_id) REFERENCES wp_svc_candidatos(id) ON DELETE CASCADE made by activate_plugin, do_action('activate_sistema-vagas-curriculos/sistema-vagas-curriculos.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[13-May-2025 17:52:16 UTC] WordPress database error Multiple primary key defined for query ALTER TABLE wp_svc_vagas CHANGE COLUMN `id` id INT(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY made by activate_plugin, do_action('activate_sistema-vagas-curriculos/sistema-vagas-curriculos.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[13-May-2025 17:52:16 UTC] WordPress database error Can't create table `dev`.`wp_svc_candidaturas` (errno: 150 "Foreign key constraint is incorrectly formed") for query 
+        CREATE TABLE wp_svc_candidaturas (
+            id INT(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            candidato_id INT(11) UNSIGNED NOT NULL,
+            vaga_id INT(11) UNSIGNED NOT NULL,
+            status VARCHAR(50) NOT NULL DEFAULT 'Em análise',
+            data_candidatura DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY (candidato_id) REFERENCES wp_svc_candidatos(id) ON DELETE CASCADE,
+            FOREIGN KEY (vaga_id) REFERENCES wp_svc_vagas(id) ON DELETE CASCADE
+        ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci made by activate_plugin, do_action('activate_sistema-vagas-curriculos/sistema-vagas-curriculos.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[13-May-2025 21:10:28 UTC] WordPress database error Multiple primary key defined for query ALTER TABLE wp_svc_candidatos CHANGE COLUMN `id` id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY made by activate_plugin, do_action('activate_sistema-vagas-curriculos/sistema-vagas-curriculos.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[13-May-2025 21:10:29 UTC] WordPress database error Multiple primary key defined for query ALTER TABLE wp_svc_curriculos CHANGE COLUMN `id` id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY made by activate_plugin, do_action('activate_sistema-vagas-curriculos/sistema-vagas-curriculos.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[13-May-2025 21:10:30 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FOREIGN KEY (candidato_id) REFERENCES wp_svc_candidatos(id) ON DELETE CASCADE' at line 1 for query ALTER TABLE wp_svc_curriculos ADD COLUMN FOREIGN KEY (candidato_id) REFERENCES wp_svc_candidatos(id) ON DELETE CASCADE made by activate_plugin, do_action('activate_sistema-vagas-curriculos/sistema-vagas-curriculos.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[13-May-2025 21:10:30 UTC] WordPress database error Multiple primary key defined for query ALTER TABLE wp_svc_vagas CHANGE COLUMN `id` id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY made by activate_plugin, do_action('activate_sistema-vagas-curriculos/sistema-vagas-curriculos.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[13-May-2025 21:10:30 UTC] WordPress database error Can't create table `dev`.`wp_svc_candidaturas` (errno: 150 "Foreign key constraint is incorrectly formed") for query 
+        CREATE TABLE wp_svc_candidaturas (
+            id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            candidato_id INT(11) NOT NULL,
+            vaga_id INT(11) NOT NULL,
+            status VARCHAR(50) NOT NULL DEFAULT 'Em análise',
+            data_candidatura DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY (candidato_id) REFERENCES wp_svc_candidatos(id) ON DELETE CASCADE,
+            FOREIGN KEY (vaga_id) REFERENCES wp_svc_vagas(id) ON DELETE CASCADE
+        ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci made by activate_plugin, do_action('activate_sistema-vagas-curriculos/sistema-vagas-curriculos.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[13-May-2025 21:30:29 UTC] PHP Warning:  include(C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes/partials/curriculo-form-formacao.php): failed to open stream: No such file or directory in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\formulario-curriculo.php on line 10
+[13-May-2025 21:30:29 UTC] PHP Warning:  include(): Failed opening 'C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes/partials/curriculo-form-formacao.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\formulario-curriculo.php on line 10
+[13-May-2025 21:30:29 UTC] PHP Warning:  include(C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes/partials/curriculo-form-experiencias.php): failed to open stream: No such file or directory in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\formulario-curriculo.php on line 11
+[13-May-2025 21:30:29 UTC] PHP Warning:  include(): Failed opening 'C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes/partials/curriculo-form-experiencias.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\formulario-curriculo.php on line 11
+[13-May-2025 21:30:29 UTC] PHP Warning:  include(C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes/partials/curriculo-form-cursos.php): failed to open stream: No such file or directory in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\formulario-curriculo.php on line 12
+[13-May-2025 21:30:29 UTC] PHP Warning:  include(): Failed opening 'C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes/partials/curriculo-form-cursos.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\formulario-curriculo.php on line 12
+[13-May-2025 21:30:31 UTC] PHP Notice:  A função do_shortcode_tag foi chamada <strong>incorretamente</strong>. Tentando analisar um shortcode sem retorno válido: painel_candidato Leia como <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Depurar o WordPress</a> para mais informações. (Esta mensagem foi adicionada na versão 4.3.0.) in C:\xampp\htdocs\dev\wp-includes\functions.php on line 6121
+[13-May-2025 21:30:34 UTC] PHP Notice:  A função do_shortcode_tag foi chamada <strong>incorretamente</strong>. Tentando analisar um shortcode sem retorno válido: formulario_candidato Leia como <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Depurar o WordPress</a> para mais informações. (Esta mensagem foi adicionada na versão 4.3.0.) in C:\xampp\htdocs\dev\wp-includes\functions.php on line 6121
+[13-May-2025 21:30:45 UTC] PHP Notice:  A função do_shortcode_tag foi chamada <strong>incorretamente</strong>. Tentando analisar um shortcode sem retorno válido: painel_candidato Leia como <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Depurar o WordPress</a> para mais informações. (Esta mensagem foi adicionada na versão 4.3.0.) in C:\xampp\htdocs\dev\wp-includes\functions.php on line 6121
+[13-May-2025 21:30:53 UTC] PHP Warning:  include(C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes/partials/curriculo-form-formacao.php): failed to open stream: No such file or directory in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\formulario-curriculo.php on line 10
+[13-May-2025 21:30:53 UTC] PHP Warning:  include(): Failed opening 'C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes/partials/curriculo-form-formacao.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\formulario-curriculo.php on line 10
+[13-May-2025 21:30:53 UTC] PHP Warning:  include(C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes/partials/curriculo-form-experiencias.php): failed to open stream: No such file or directory in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\formulario-curriculo.php on line 11
+[13-May-2025 21:30:53 UTC] PHP Warning:  include(): Failed opening 'C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes/partials/curriculo-form-experiencias.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\formulario-curriculo.php on line 11
+[13-May-2025 21:30:53 UTC] PHP Warning:  include(C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes/partials/curriculo-form-cursos.php): failed to open stream: No such file or directory in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\formulario-curriculo.php on line 12
+[13-May-2025 21:30:53 UTC] PHP Warning:  include(): Failed opening 'C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes/partials/curriculo-form-cursos.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\formulario-curriculo.php on line 12
+[13-May-2025 21:30:57 UTC] PHP Warning:  include(C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes/partials/curriculo-form-formacao.php): failed to open stream: No such file or directory in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\formulario-curriculo.php on line 10
+[13-May-2025 21:30:57 UTC] PHP Warning:  include(): Failed opening 'C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes/partials/curriculo-form-formacao.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\formulario-curriculo.php on line 10
+[13-May-2025 21:30:57 UTC] PHP Warning:  include(C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes/partials/curriculo-form-experiencias.php): failed to open stream: No such file or directory in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\formulario-curriculo.php on line 11
+[13-May-2025 21:30:57 UTC] PHP Warning:  include(): Failed opening 'C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes/partials/curriculo-form-experiencias.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\formulario-curriculo.php on line 11
+[13-May-2025 21:30:57 UTC] PHP Warning:  include(C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes/partials/curriculo-form-cursos.php): failed to open stream: No such file or directory in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\formulario-curriculo.php on line 12
+[13-May-2025 21:30:57 UTC] PHP Warning:  include(): Failed opening 'C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes/partials/curriculo-form-cursos.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\formulario-curriculo.php on line 12
+[13-May-2025 21:31:08 UTC] PHP Notice:  A função do_shortcode_tag foi chamada <strong>incorretamente</strong>. Tentando analisar um shortcode sem retorno válido: formulario_candidato Leia como <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Depurar o WordPress</a> para mais informações. (Esta mensagem foi adicionada na versão 4.3.0.) in C:\xampp\htdocs\dev\wp-includes\functions.php on line 6121
+[13-May-2025 22:43:30 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "svc_criar_tabelas" not found or invalid function name in C:\xampp\htdocs\dev\wp-includes\class-wp-hook.php:324
+Stack trace:
+#0 C:\xampp\htdocs\dev\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#1 C:\xampp\htdocs\dev\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#2 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(703): do_action('activate_sistem...', false)
+#3 C:\xampp\htdocs\dev\wp-admin\plugins.php(60): activate_plugin('sistema-vagas-c...', 'http://localhos...', false)
+#4 {main}
+  thrown in C:\xampp\htdocs\dev\wp-includes\class-wp-hook.php on line 324
+[13-May-2025 22:49:02 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "svc_criar_tabelas" not found or invalid function name in C:\xampp\htdocs\dev\wp-includes\class-wp-hook.php:324
+Stack trace:
+#0 C:\xampp\htdocs\dev\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#1 C:\xampp\htdocs\dev\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#2 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(703): do_action('activate_sistem...', false)
+#3 C:\xampp\htdocs\dev\wp-admin\plugins.php(60): activate_plugin('sistema-vagas-c...', 'http://localhos...', false)
+#4 {main}
+  thrown in C:\xampp\htdocs\dev\wp-includes\class-wp-hook.php on line 324
+[13-May-2025 23:20:04 UTC] Automatic updates starting...
+[13-May-2025 23:20:04 UTC] Automatic updates complete.
+[14-May-2025 04:00:26 UTC] PHP Warning:  require_once(C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes/includes/menu-filtro.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\functions.php on line 21
+[14-May-2025 04:00:26 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes/includes/menu-filtro.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\functions.php:21
+Stack trace:
+#0 C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\sistema-vagas-curriculos.php(26): require_once()
+#1 C:\xampp\htdocs\dev\wp-settings.php(545): include_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\dev\wp-config.php(112): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\dev\wp-load.php(50): require_once('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\dev\wp-blog-header.php(13): require_once('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\dev\index.php(17): require('C:\\xampp\\htdocs...')
+#6 {main}
+  thrown in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\functions.php on line 21
+[14-May-2025 04:12:32 UTC] PHP Warning:  require_once(C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes/includes/menu-filtro.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\functions.php on line 21
+[14-May-2025 04:12:32 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes/includes/menu-filtro.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\functions.php:21
+Stack trace:
+#0 C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\sistema-vagas-curriculos.php(26): require_once()
+#1 C:\xampp\htdocs\dev\wp-settings.php(545): include_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\dev\wp-config.php(112): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\dev\wp-load.php(50): require_once('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\dev\wp-admin\admin-ajax.php(22): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+  thrown in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\functions.php on line 21
+[14-May-2025 04:12:50 UTC] PHP Warning:  require_once(C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes/includes/menu-filtro.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\functions.php on line 21
+[14-May-2025 04:12:50 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes/includes/menu-filtro.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\functions.php:21
+Stack trace:
+#0 C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\sistema-vagas-curriculos.php(26): require_once()
+#1 C:\xampp\htdocs\dev\wp-settings.php(545): include_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\dev\wp-config.php(112): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\dev\wp-load.php(50): require_once('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\dev\wp-blog-header.php(13): require_once('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\dev\index.php(17): require('C:\\xampp\\htdocs...')
+#6 {main}
+  thrown in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\functions.php on line 21
+[14-May-2025 04:13:31 UTC] PHP Warning:  require_once(C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes/includes/menu-filtro.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\functions.php on line 21
+[14-May-2025 04:13:31 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes/includes/menu-filtro.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\functions.php:21
+Stack trace:
+#0 C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\sistema-vagas-curriculos.php(26): require_once()
+#1 C:\xampp\htdocs\dev\wp-settings.php(545): include_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\dev\wp-config.php(112): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\dev\wp-load.php(50): require_once('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\dev\wp-admin\admin-ajax.php(22): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+  thrown in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\functions.php on line 21
+[14-May-2025 04:13:33 UTC] PHP Warning:  require_once(C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes/includes/menu-filtro.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\functions.php on line 21
+[14-May-2025 04:13:33 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes/includes/menu-filtro.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\functions.php:21
+Stack trace:
+#0 C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\sistema-vagas-curriculos.php(26): require_once()
+#1 C:\xampp\htdocs\dev\wp-settings.php(545): include_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\dev\wp-config.php(112): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\dev\wp-load.php(50): require_once('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\dev\wp-admin\admin.php(35): require_once('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\dev\wp-admin\plugins.php(10): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+  thrown in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\functions.php on line 21
+[14-May-2025 04:18:19 UTC] PHP Warning:  require_once(C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes/includes/menu-filtro.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes\functions.php on line 21
+[14-May-2025 04:18:19 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes/includes/menu-filtro.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes\functions.php:21
+Stack trace:
+#0 C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\sistema-vagas-curriculos.php(26): require_once()
+#1 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(2387): include_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(673): plugin_sandbox_scrape('sistema-vagas-c...')
+#3 C:\xampp\htdocs\dev\wp-admin\plugins.php(60): activate_plugin('sistema-vagas-c...', 'http://localhos...', false)
+#4 {main}
+  thrown in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes\functions.php on line 21
+[14-May-2025 04:29:04 UTC] PHP Warning:  require_once(C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes/includes/menu-filtro.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes\functions.php on line 21
+[14-May-2025 04:29:04 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes/includes/menu-filtro.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes\functions.php:21
+Stack trace:
+#0 C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\sistema-vagas-curriculos.php(26): require_once()
+#1 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(2387): include_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(673): plugin_sandbox_scrape('sistema-vagas-c...')
+#3 C:\xampp\htdocs\dev\wp-admin\plugins.php(60): activate_plugin('sistema-vagas-c...', 'http://localhos...', false)
+#4 {main}
+  thrown in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes\functions.php on line 21
+[14-May-2025 04:29:11 UTC] PHP Warning:  require_once(C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes/includes/menu-filtro.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes\functions.php on line 21
+[14-May-2025 04:29:11 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes/includes/menu-filtro.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes\functions.php:21
+Stack trace:
+#0 C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\sistema-vagas-curriculos.php(26): require_once()
+#1 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(2387): include_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(673): plugin_sandbox_scrape('sistema-vagas-c...')
+#3 C:\xampp\htdocs\dev\wp-admin\plugins.php(60): activate_plugin('sistema-vagas-c...', 'http://localhos...', false)
+#4 {main}
+  thrown in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes\functions.php on line 21
+[14-May-2025 04:33:13 UTC] PHP Warning:  require_once(C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes/includes/menu-filtro.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes\functions.php on line 21
+[14-May-2025 04:33:13 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes/includes/menu-filtro.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes\functions.php:21
+Stack trace:
+#0 C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\sistema-vagas-curriculos.php(26): require_once()
+#1 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(2387): include_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(673): plugin_sandbox_scrape('sistema-vagas-c...')
+#3 C:\xampp\htdocs\dev\wp-admin\plugins.php(60): activate_plugin('sistema-vagas-c...', 'http://localhos...', false)
+#4 {main}
+  thrown in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes\functions.php on line 21
+[14-May-2025 04:37:17 UTC] PHP Warning:  require_once(C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes/includes/menu-filtro.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes\functions.php on line 21
+[14-May-2025 04:37:17 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes/includes/menu-filtro.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes\functions.php:21
+Stack trace:
+#0 C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\sistema-vagas-curriculos.php(26): require_once()
+#1 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(2387): include_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(673): plugin_sandbox_scrape('sistema-vagas-c...')
+#3 C:\xampp\htdocs\dev\wp-admin\plugins.php(60): activate_plugin('sistema-vagas-c...', 'http://localhos...', false)
+#4 {main}
+  thrown in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes\functions.php on line 21
+[14-May-2025 04:53:15 UTC] PHP Warning:  require_once(C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes/includes/menu-filtro.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes\functions.php on line 21
+[14-May-2025 04:53:15 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes/includes/menu-filtro.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes\functions.php:21
+Stack trace:
+#0 C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\sistema-vagas-curriculos.php(26): require_once()
+#1 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(2387): include_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(673): plugin_sandbox_scrape('sistema-vagas-c...')
+#3 C:\xampp\htdocs\dev\wp-admin\plugins.php(60): activate_plugin('sistema-vagas-c...', 'http://localhos...', false)
+#4 {main}
+  thrown in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes\functions.php on line 21
+[14-May-2025 04:54:12 UTC] PHP Warning:  require_once(C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes/includes/menu-filtro.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes\functions.php on line 21
+[14-May-2025 04:54:12 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes/includes/menu-filtro.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes\functions.php:21
+Stack trace:
+#0 C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\sistema-vagas-curriculos.php(26): require_once()
+#1 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(2387): include_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(673): plugin_sandbox_scrape('sistema-vagas-c...')
+#3 C:\xampp\htdocs\dev\wp-admin\plugins.php(60): activate_plugin('sistema-vagas-c...', 'http://localhos...', false)
+#4 {main}
+  thrown in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes\functions.php on line 21
+[14-May-2025 05:01:48 UTC] PHP Warning:  require_once(C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includesshortcodes.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\functions.php on line 43
+[14-May-2025 05:01:48 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includesshortcodes.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\functions.php:43
+Stack trace:
+#0 C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\sistema-vagas-curriculos.php(26): require_once()
+#1 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(2387): include_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(673): plugin_sandbox_scrape('sistema-vagas-c...')
+#3 C:\xampp\htdocs\dev\wp-admin\plugins.php(60): activate_plugin('sistema-vagas-c...', 'http://localhos...', false)
+#4 {main}
+  thrown in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\functions.php on line 43
+[14-May-2025 05:01:53 UTC] PHP Fatal error:  Uncaught Error: Undefined constant "_DIR_" in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes\functions.php:33
+Stack trace:
+#0 C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\sistema-vagas-curriculos.php(26): require_once()
+#1 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(2387): include_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\dev\wp-admin\includes\plugin.php(673): plugin_sandbox_scrape('sistema-vagas-c...')
+#3 C:\xampp\htdocs\dev\wp-admin\plugins.php(60): activate_plugin('sistema-vagas-c...', 'http://localhos...', false)
+#4 {main}
+  thrown in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes\functions.php on line 33
+[14-May-2025 05:11:37 UTC] PHP Fatal error:  Cannot redeclare svc_instalacao_completa() (previously declared in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\ativacao.php:5) in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos_\includes\ativacao.php on line 78
+[14-May-2025 05:26:41 UTC] Automatic updates starting...
+[14-May-2025 05:26:43 UTC] Automatic updates complete.
+[14-May-2025 05:40:36 UTC] PHP Notice:  A função do_shortcode_tag foi chamada <strong>incorretamente</strong>. Tentando analisar um shortcode sem retorno válido: formulario_candidato Leia como <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Depurar o WordPress</a> para mais informações. (Esta mensagem foi adicionada na versão 4.3.0.) in C:\xampp\htdocs\dev\wp-includes\functions.php on line 6121
+[14-May-2025 05:40:44 UTC] PHP Notice:  A função do_shortcode_tag foi chamada <strong>incorretamente</strong>. Tentando analisar um shortcode sem retorno válido: formulario_candidato Leia como <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Depurar o WordPress</a> para mais informações. (Esta mensagem foi adicionada na versão 4.3.0.) in C:\xampp\htdocs\dev\wp-includes\functions.php on line 6121
+[14-May-2025 05:45:43 UTC] PHP Notice:  A função do_shortcode_tag foi chamada <strong>incorretamente</strong>. Tentando analisar um shortcode sem retorno válido: formulario_candidato Leia como <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Depurar o WordPress</a> para mais informações. (Esta mensagem foi adicionada na versão 4.3.0.) in C:\xampp\htdocs\dev\wp-includes\functions.php on line 6121
+[14-May-2025 05:45:48 UTC] PHP Notice:  A função do_shortcode_tag foi chamada <strong>incorretamente</strong>. Tentando analisar um shortcode sem retorno válido: formulario_candidato Leia como <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Depurar o WordPress</a> para mais informações. (Esta mensagem foi adicionada na versão 4.3.0.) in C:\xampp\htdocs\dev\wp-includes\functions.php on line 6121
+[14-May-2025 05:46:24 UTC] PHP Notice:  A função do_shortcode_tag foi chamada <strong>incorretamente</strong>. Tentando analisar um shortcode sem retorno válido: formulario_candidato Leia como <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Depurar o WordPress</a> para mais informações. (Esta mensagem foi adicionada na versão 4.3.0.) in C:\xampp\htdocs\dev\wp-includes\functions.php on line 6121
+[14-May-2025 15:08:49 UTC] Automatic updates starting...
+[14-May-2025 15:08:50 UTC] Automatic updates complete.
+[14-May-2025 18:48:52 UTC] PHP Warning:  call_user_func_array() expects parameter 1 to be a valid callback, function 'svc_instalacao_completa' not found or invalid function name in C:\xampp\htdocs\dev\wp-includes\class-wp-hook.php on line 324
+[14-May-2025 20:36:23 UTC] Automatic updates starting...
+[14-May-2025 20:36:24 UTC] Automatic updates complete.
+[14-May-2025 21:03:11 UTC] PHP Warning:  call_user_func_array() expects parameter 1 to be a valid callback, function 'svc_instalacao_completa' not found or invalid function name in C:\xampp\htdocs\dev\wp-includes\class-wp-hook.php on line 324
+[14-May-2025 21:03:12 UTC] WordPress database error Multiple primary key defined for query ALTER TABLE wp_svc_candidatos CHANGE COLUMN `id` id INT NOT NULL AUTO_INCREMENT PRIMARY KEY made by activate_plugin, do_action('activate_sistema-vagas-curriculos/sistema-vagas-curriculos.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[14-May-2025 21:03:12 UTC] WordPress database error Multiple primary key defined for query ALTER TABLE wp_svc_curriculos CHANGE COLUMN `id` id INT NOT NULL AUTO_INCREMENT PRIMARY KEY made by activate_plugin, do_action('activate_sistema-vagas-curriculos/sistema-vagas-curriculos.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[14-May-2025 21:03:12 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FOREIGN KEY (candidato_id) REFERENCES wp_svc_candidatos(id) ON DELETE CASCADE' at line 1 for query ALTER TABLE wp_svc_curriculos ADD COLUMN FOREIGN KEY (candidato_id) REFERENCES wp_svc_candidatos(id) ON DELETE CASCADE made by activate_plugin, do_action('activate_sistema-vagas-curriculos/sistema-vagas-curriculos.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[14-May-2025 21:03:12 UTC] WordPress database error Multiple primary key defined for query ALTER TABLE wp_svc_vagas CHANGE COLUMN `id` id INT NOT NULL AUTO_INCREMENT PRIMARY KEY made by activate_plugin, do_action('activate_sistema-vagas-curriculos/sistema-vagas-curriculos.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[14-May-2025 21:03:13 UTC] WordPress database error Multiple primary key defined for query ALTER TABLE wp_svc_candidaturas CHANGE COLUMN `id` id INT NOT NULL AUTO_INCREMENT PRIMARY KEY made by activate_plugin, do_action('activate_sistema-vagas-curriculos/sistema-vagas-curriculos.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[14-May-2025 21:03:13 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FOREIGN KEY (vaga_id) REFERENCES wp_svc_vagas(id) ON DELETE CASCADE' at line 1 for query ALTER TABLE wp_svc_candidaturas ADD COLUMN FOREIGN KEY (vaga_id) REFERENCES wp_svc_vagas(id) ON DELETE CASCADE made by activate_plugin, do_action('activate_sistema-vagas-curriculos/sistema-vagas-curriculos.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[14-May-2025 22:11:56 UTC] PHP Warning:  call_user_func_array() expects parameter 1 to be a valid callback, function 'svc_instalacao_completa' not found or invalid function name in C:\xampp\htdocs\dev\wp-includes\class-wp-hook.php on line 324
+[14-May-2025 22:11:56 UTC] WordPress database error Multiple primary key defined for query ALTER TABLE wp_svc_candidatos CHANGE COLUMN `id` id INT NOT NULL AUTO_INCREMENT PRIMARY KEY made by activate_plugin, do_action('activate_sistema-vagas-curriculos/sistema-vagas-curriculos.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[14-May-2025 22:11:56 UTC] WordPress database error Multiple primary key defined for query ALTER TABLE wp_svc_curriculos CHANGE COLUMN `id` id INT NOT NULL AUTO_INCREMENT PRIMARY KEY made by activate_plugin, do_action('activate_sistema-vagas-curriculos/sistema-vagas-curriculos.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[14-May-2025 22:11:57 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FOREIGN KEY (candidato_id) REFERENCES wp_svc_candidatos(id) ON DELETE CASCADE' at line 1 for query ALTER TABLE wp_svc_curriculos ADD COLUMN FOREIGN KEY (candidato_id) REFERENCES wp_svc_candidatos(id) ON DELETE CASCADE made by activate_plugin, do_action('activate_sistema-vagas-curriculos/sistema-vagas-curriculos.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[14-May-2025 22:11:57 UTC] WordPress database error Multiple primary key defined for query ALTER TABLE wp_svc_vagas CHANGE COLUMN `id` id INT NOT NULL AUTO_INCREMENT PRIMARY KEY made by activate_plugin, do_action('activate_sistema-vagas-curriculos/sistema-vagas-curriculos.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[14-May-2025 22:11:57 UTC] WordPress database error Multiple primary key defined for query ALTER TABLE wp_svc_candidaturas CHANGE COLUMN `id` id INT NOT NULL AUTO_INCREMENT PRIMARY KEY made by activate_plugin, do_action('activate_sistema-vagas-curriculos/sistema-vagas-curriculos.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[14-May-2025 22:11:57 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FOREIGN KEY (vaga_id) REFERENCES wp_svc_vagas(id) ON DELETE CASCADE' at line 1 for query ALTER TABLE wp_svc_candidaturas ADD COLUMN FOREIGN KEY (vaga_id) REFERENCES wp_svc_vagas(id) ON DELETE CASCADE made by activate_plugin, do_action('activate_sistema-vagas-curriculos/sistema-vagas-curriculos.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[14-May-2025 22:13:43 UTC] WordPress database error Unknown column 'endereco' in 'field list' for query INSERT INTO `wp_svc_curriculos` (`formacao`, `experiencia`, `cursos_complementares`, `idiomas`, `endereco`, `status`, `arquivo_curriculo`, `criado_em`, `candidato_id`) VALUES ('', '', '', '', '', 'Completo', 'http://localhost/dev/wp-content/uploads/2025/05/Curriculo-Fabiano-Maximiano.pdf', '2025-05-14 19:13:43', '1') made by require('wp-blog-header.php'), require_once('wp-includes/template-loader.php'), include('wp-includes/template-canvas.php'), get_the_block_template_html, do_blocks, render_block, WP_Block->render, WP_Block->render, WP_Block->render, render_block_core_post_content, apply_filters('the_content'), WP_Hook->apply_filters, do_shortcode, preg_replace_callback, do_shortcode_tag, svc_formulario_curriculo
+[14-May-2025 22:46:08 UTC] PHP Warning:  call_user_func_array() expects parameter 1 to be a valid callback, function 'svc_instalacao_completa' not found or invalid function name in C:\xampp\htdocs\dev\wp-includes\class-wp-hook.php on line 324
+[14-May-2025 22:46:08 UTC] WordPress database error Multiple primary key defined for query ALTER TABLE wp_svc_candidatos CHANGE COLUMN `id` id INT NOT NULL AUTO_INCREMENT PRIMARY KEY made by activate_plugin, do_action('activate_sistema-vagas-curriculos/sistema-vagas-curriculos.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[14-May-2025 22:46:10 UTC] WordPress database error Multiple primary key defined for query ALTER TABLE wp_svc_curriculos CHANGE COLUMN `id` id INT NOT NULL AUTO_INCREMENT PRIMARY KEY made by activate_plugin, do_action('activate_sistema-vagas-curriculos/sistema-vagas-curriculos.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[14-May-2025 22:46:10 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FOREIGN KEY (candidato_id) REFERENCES wp_svc_candidatos(id) ON DELETE CASCADE' at line 1 for query ALTER TABLE wp_svc_curriculos ADD COLUMN FOREIGN KEY (candidato_id) REFERENCES wp_svc_candidatos(id) ON DELETE CASCADE made by activate_plugin, do_action('activate_sistema-vagas-curriculos/sistema-vagas-curriculos.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[14-May-2025 22:46:10 UTC] WordPress database error Multiple primary key defined for query ALTER TABLE wp_svc_vagas CHANGE COLUMN `id` id INT NOT NULL AUTO_INCREMENT PRIMARY KEY made by activate_plugin, do_action('activate_sistema-vagas-curriculos/sistema-vagas-curriculos.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[14-May-2025 22:46:10 UTC] WordPress database error Multiple primary key defined for query ALTER TABLE wp_svc_candidaturas CHANGE COLUMN `id` id INT NOT NULL AUTO_INCREMENT PRIMARY KEY made by activate_plugin, do_action('activate_sistema-vagas-curriculos/sistema-vagas-curriculos.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[14-May-2025 22:46:10 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FOREIGN KEY (vaga_id) REFERENCES wp_svc_vagas(id) ON DELETE CASCADE' at line 1 for query ALTER TABLE wp_svc_candidaturas ADD COLUMN FOREIGN KEY (vaga_id) REFERENCES wp_svc_vagas(id) ON DELETE CASCADE made by activate_plugin, do_action('activate_sistema-vagas-curriculos/sistema-vagas-curriculos.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_criar_tabelas, dbDelta
+[14-May-2025 23:55:15 UTC] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\formulario-vaga.php on line 37
+[15-May-2025 07:02:59 UTC] Erro de evento de reagendamento do cron para o gancho: wp_privacy_delete_old_export_files, código de erro: could_not_set, mensagem de erro: Não foi possível salvar a lista de evento do cron, dados: {"schedule":"hourly","args":[],"interval":3600}
+[15-May-2025 07:45:11 UTC] Automatic updates starting...
+[15-May-2025 07:45:12 UTC] Automatic updates complete.
+[15-May-2025 09:29:12 UTC] WordPress database error Unknown column 'numero' in 'field list' for query INSERT INTO `wp_svc_candidatos` (`nome_completo`, `cpf`, `email`, `telefone`, `senha`, `endereco`, `numero`, `cidade`, `estado`) VALUES ('', '', '', '', '$2y$10$uhujntRu2Lv7qRpWcGGVEertMsfkZaMzroDNxSYapMkDI99Cu.ue.', ', ', '', '', '') made by require('wp-blog-header.php'), require_once('wp-includes/template-loader.php'), include('wp-includes/template-canvas.php'), get_the_block_template_html, do_blocks, render_block, WP_Block->render, WP_Block->render, WP_Block->render, render_block_core_post_content, apply_filters('the_content'), WP_Hook->apply_filters, do_shortcode, preg_replace_callback, do_shortcode_tag, svc_formulario_candidato
+[15-May-2025 09:29:36 UTC] WordPress database error Unknown column 'numero' in 'field list' for query INSERT INTO `wp_svc_candidatos` (`nome_completo`, `cpf`, `email`, `telefone`, `senha`, `endereco`, `numero`, `cidade`, `estado`) VALUES ('', '', '', '', '$2y$10$2Vd1/hCy85Li41GncF8q4.CDMIG4Ia4WeKi18.yAvcIF8erJZwGSW', ', ', '', '', '') made by require('wp-blog-header.php'), require_once('wp-includes/template-loader.php'), include('wp-includes/template-canvas.php'), get_the_block_template_html, do_blocks, render_block, WP_Block->render, WP_Block->render, WP_Block->render, render_block_core_post_content, apply_filters('the_content'), WP_Hook->apply_filters, do_shortcode, preg_replace_callback, do_shortcode_tag, svc_formulario_candidato
+[15-May-2025 10:07:16 UTC] WordPress database error Unknown column 'numero' in 'field list' for query INSERT INTO `wp_svc_candidatos` (`nome_completo`, `cpf`, `email`, `telefone`, `senha`, `endereco`, `numero`, `cidade`, `estado`) VALUES ('Fabiano Maximiano', '876.994.950-63', 'fabianomaximiano@hotmail.com', '(11) 98624-0526', '$2y$10$GNfkIGIR9Me0qadw4NuzvezF0FRdAuL/vYwaIj1N3jWMJIFFVux5m', 'Rua Sara Newton, 103', '103', 'São Paulo', 'São Paulo') made by require('wp-blog-header.php'), require_once('wp-includes/template-loader.php'), include('wp-includes/template-canvas.php'), get_the_block_template_html, do_blocks, render_block, WP_Block->render, WP_Block->render, WP_Block->render, render_block_core_post_content, apply_filters('the_content'), WP_Hook->apply_filters, do_shortcode, preg_replace_callback, do_shortcode_tag, svc_formulario_candidato
+[15-May-2025 10:11:16 UTC] WordPress database error Multiple primary key defined for query ALTER TABLE wp_svc_candidatos CHANGE COLUMN `id` id INT NOT NULL AUTO_INCREMENT PRIMARY KEY made by activate_plugin, do_action('activate_sistema-vagas-curriculos/sistema-vagas-curriculos.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_instalacao_completa, svc_criar_tabelas, dbDelta
+[15-May-2025 10:11:17 UTC] WordPress database error Multiple primary key defined for query ALTER TABLE wp_svc_curriculos CHANGE COLUMN `id` id INT NOT NULL AUTO_INCREMENT PRIMARY KEY made by activate_plugin, do_action('activate_sistema-vagas-curriculos/sistema-vagas-curriculos.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_instalacao_completa, svc_criar_tabelas, dbDelta
+[15-May-2025 10:11:17 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FOREIGN KEY (candidato_id) REFERENCES wp_svc_candidatos(id) ON DELETE CASCADE' at line 1 for query ALTER TABLE wp_svc_curriculos ADD COLUMN FOREIGN KEY (candidato_id) REFERENCES wp_svc_candidatos(id) ON DELETE CASCADE made by activate_plugin, do_action('activate_sistema-vagas-curriculos/sistema-vagas-curriculos.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_instalacao_completa, svc_criar_tabelas, dbDelta
+[15-May-2025 10:11:17 UTC] WordPress database error Multiple primary key defined for query ALTER TABLE wp_svc_vagas CHANGE COLUMN `id` id INT NOT NULL AUTO_INCREMENT PRIMARY KEY made by activate_plugin, do_action('activate_sistema-vagas-curriculos/sistema-vagas-curriculos.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_instalacao_completa, svc_criar_tabelas, dbDelta
+[15-May-2025 10:11:17 UTC] WordPress database error Multiple primary key defined for query ALTER TABLE wp_svc_candidaturas CHANGE COLUMN `id` id INT NOT NULL AUTO_INCREMENT PRIMARY KEY made by activate_plugin, do_action('activate_sistema-vagas-curriculos/sistema-vagas-curriculos.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_instalacao_completa, svc_criar_tabelas, dbDelta
+[15-May-2025 10:11:17 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FOREIGN KEY (vaga_id) REFERENCES wp_svc_vagas(id) ON DELETE CASCADE' at line 1 for query ALTER TABLE wp_svc_candidaturas ADD COLUMN FOREIGN KEY (vaga_id) REFERENCES wp_svc_vagas(id) ON DELETE CASCADE made by activate_plugin, do_action('activate_sistema-vagas-curriculos/sistema-vagas-curriculos.php'), WP_Hook->do_action, WP_Hook->apply_filters, svc_instalacao_completa, svc_criar_tabelas, dbDelta
+[15-May-2025 10:11:54 UTC] WordPress database error Unknown column 'numero' in 'field list' for query INSERT INTO `wp_svc_candidatos` (`nome_completo`, `cpf`, `email`, `telefone`, `senha`, `endereco`, `numero`, `cidade`, `estado`) VALUES ('Fabiano Maximiano', '876.994.950-63', 'fabianomaximiano@hotmail.com', '(11) 98624-0526', '$2y$10$sJY8f5PfLLjoK/CJrDeIQOEWCJ04ZTYd/zcBRZ1snh21LBewC/Xpi', ', 103', '103', 'São Paulo', 'São Paulo') made by require('wp-blog-header.php'), require_once('wp-includes/template-loader.php'), include('wp-includes/template-canvas.php'), get_the_block_template_html, do_blocks, render_block, WP_Block->render, WP_Block->render, WP_Block->render, render_block_core_post_content, apply_filters('the_content'), WP_Hook->apply_filters, do_shortcode, preg_replace_callback, do_shortcode_tag, svc_formulario_candidato
+[15-May-2025 13:19:02 UTC] PHP Notice:  Undefined variable: mensagem in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\formularios.php on line 62
+[15-May-2025 13:19:03 UTC] PHP Notice:  Undefined variable: mensagem in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\formularios.php on line 62
+[15-May-2025 13:20:27 UTC] PHP Notice:  Undefined variable: mensagem in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\formularios.php on line 62
+[15-May-2025 13:22:28 UTC] PHP Notice:  Undefined variable: mensagem in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\formularios.php on line 62
+[15-May-2025 13:24:28 UTC] PHP Notice:  Undefined variable: mensagem in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\formularios.php on line 62
+[15-May-2025 13:26:28 UTC] PHP Notice:  Undefined variable: mensagem in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\formularios.php on line 62
+[15-May-2025 13:28:28 UTC] PHP Notice:  Undefined variable: mensagem in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\formularios.php on line 62
+[15-May-2025 13:30:28 UTC] PHP Notice:  Undefined variable: mensagem in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\formularios.php on line 62
+[15-May-2025 13:32:29 UTC] PHP Notice:  Undefined variable: mensagem in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\formularios.php on line 62
+[15-May-2025 13:34:29 UTC] PHP Notice:  Undefined variable: mensagem in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\formularios.php on line 62
+[15-May-2025 13:36:29 UTC] PHP Notice:  Undefined variable: mensagem in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\formularios.php on line 62
+[15-May-2025 13:38:30 UTC] PHP Notice:  Undefined variable: mensagem in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\formularios.php on line 62
+[15-May-2025 13:40:29 UTC] PHP Notice:  Undefined variable: mensagem in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\formularios.php on line 62
+[15-May-2025 13:42:29 UTC] PHP Notice:  Undefined variable: mensagem in C:\xampp\htdocs\dev\wp-content\plugins\sistema-vagas-curriculos\includes\formularios.php on line 62
+[15-May-2025 13:54:57 UTC] WordPress database error Unknown column 'numero' in 'field list' for query INSERT INTO `wp_svc_candidatos` (`nome_completo`, `cpf`, `email`, `telefone`, `senha`, `endereco`, `numero`, `cidade`, `estado`) VALUES ('Fabiano Maximiano', '876.994.950-63', 'fabianomaximiano@hotmail.com', '(11) 98624-0526', '$2y$10$fE62sXHdtbwnju09WW2WxeFes/oljqLw9OIrIYar9f8i6OZiorIZS', ', 103', '103', 'São Paulo', 'São Paulo') made by require('wp-blog-header.php'), require_once('wp-includes/template-loader.php'), include('wp-includes/template-canvas.php'), get_the_block_template_html, do_blocks, render_block, WP_Block->render, WP_Block->render, WP_Block->render, render_block_core_post_content, apply_filters('the_content'), WP_Hook->apply_filters, do_shortcode, preg_replace_callback, do_shortcode_tag, svc_formulario_candidato

@@ -25,6 +25,10 @@
 
             // Estilos adicionais do plugin
             wp_enqueue_style('svc-style', plugin_dir_url(__FILE__) . 'assets/css/style.css');
+            
+            //javascript do formulario.php
+            wp_enqueue_script('svc-formularios', plugin_dir_url(__FILE__) . '../assets/js/formularios.js', ['jquery'], null, true);
+ 
         });
 
         // Remove páginas internas do menu quando for exibido automaticamente (por temas)
@@ -74,3 +78,31 @@ function svc_carregar_template_plugin($template) {
     return $template;
 }
 
+
+/** postype vagas**/
+add_action('init', 'svc_registrar_cpt_vagas');
+
+function svc_registrar_cpt_vagas() {
+    register_post_type('vaga', [
+        'labels' => [
+            'name' => 'Vagas',
+            'singular_name' => 'Vaga',
+            'add_new' => 'Adicionar Nova Vaga',
+            'add_new_item' => 'Adicionar Nova Vaga',
+            'edit_item' => 'Editar Vaga',
+            'new_item' => 'Nova Vaga',
+            'view_item' => 'Ver Vaga',
+            'search_items' => 'Buscar Vagas',
+            'not_found' => 'Nenhuma vaga encontrada',
+            'not_found_in_trash' => 'Nenhuma vaga na lixeira',
+        ],
+        'public' => true,
+        'has_archive' => true,
+        'rewrite' => ['slug' => 'vagas'],
+        'show_in_rest' => true,
+        'supports' => ['title', 'editor'],
+        'menu_icon' => 'dashicons-businessman',
+        'capability_type' => 'post',
+        'menu_position' => 5,
+    ]);
+}

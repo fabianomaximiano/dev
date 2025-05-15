@@ -6,6 +6,9 @@ function svc_formulario_vaga() {
         return '<p class="alert alert-danger">Apenas administradores podem cadastrar vagas.</p>';
     }
 
+    global $wpdb;
+    $mensagem = '';
+
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['titulo'])) {
         $titulo       = sanitize_text_field($_POST['titulo']);
         $descricao    = wp_kses_post($_POST['descricao']);
@@ -26,26 +29,25 @@ function svc_formulario_vaga() {
             }
         }
 
-        $post_id = wp_insert_post([
-            'post_title'   => $titulo,
-            'post_content' => $descricao,
-            'post_status'  => 'publish',
-            'post_type'    => 'post',
-            'post_category' => [$categoria]
+        $resultado = $wpdb->insert($wpdb->prefix . 'svc_vagas', [
+            'titulo'       => $titulo,
+            'descricao'    => $descricao,
+            'requisitos'   => $requisitos,
+            'diferenciais' => $diferenciais,
+            'categoria'    => $categoria,
+            'criado_em'    => current_time('mysql')
         ]);
 
-        if ($post_id) {
-            update_post_meta($post_id, 'requisitos', $requisitos);
-            update_post_meta($post_id, 'diferenciais', $diferenciais);
-            update_post_meta($post_id, 'categoria', $categoria);
-            return '<div class="alert alert-success">Vaga cadastrada com sucesso!</div>';
+        if ($resultado) {
+            $mensagem = "<div class='alert alert-success mt-3'>Vaga cadastrada com sucesso!</div>";
         } else {
-            return '<div class="alert alert-danger">Erro ao cadastrar vaga.</div>';
+            $mensagem = "<div class='alert alert-danger mt-3'>Erro ao cadastrar vaga.</div>";
         }
     }
 
     ob_start();
-    $categorias = get_categories(['hide_empty' => false]); ?>
+    $categorias = get_categories(['hide_empty' => false]);
+    ?>
 
     <form method="post" class="needs-validation" novalidate>
         <div class="form-group">
@@ -84,6 +86,7 @@ function svc_formulario_vaga() {
         </div>
 
         <button type="submit" class="btn btn-primary">Cadastrar Vaga</button>
+        <?php if (!empty($mensagem)) echo $mensagem; ?>
     </form>
 
     <script>

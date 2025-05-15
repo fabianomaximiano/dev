@@ -116,3 +116,10 @@ add_action('admin_notices', function () {
         delete_transient('svc_ativado_com_sucesso');
     }
 });
+
+/**
+ * Função chamada no momento da ativação do plugin
+ */
+function svc_instalacao_completa() {
+    svc_criar_tabelas();
+}

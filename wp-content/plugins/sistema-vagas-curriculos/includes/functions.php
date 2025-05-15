@@ -25,6 +25,11 @@ add_action('wp_enqueue_scripts', function () {
     // JS de validação personalizado
     wp_enqueue_script('validacao-js', plugin_dir_url(__DIR__) . 'assets/js/validacao.js', ['jquery'], null, true);
 
+    //js responsavel pela validaçao do formulario.php
+    wp_enqueue_script('svc-formularios-js', plugin_dir_url(__FILE__) . '../assets/js/formularios.js', ['jquery'], null, true);
+
+    wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
     // Estilo customizado
     wp_enqueue_style('svc-style', plugin_dir_url(__DIR__) . 'assets/css/style.css');
 });
