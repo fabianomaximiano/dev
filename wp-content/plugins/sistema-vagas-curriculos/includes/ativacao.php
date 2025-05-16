@@ -15,9 +15,9 @@ function svc_criar_tabelas() {
 
     require_once ABSPATH . 'wp-admin/includes/upgrade.php';
 
-    // Tabela de candidatos (corrigida)
+    // Tabela de candidatos
     dbDelta("CREATE TABLE $t_candidatos (
-        id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+        id INT NOT NULL AUTO_INCREMENT,
         user_id BIGINT(20) UNSIGNED,
         nome_completo VARCHAR(255) NOT NULL,
         cpf VARCHAR(20) NOT NULL UNIQUE,
@@ -27,12 +27,13 @@ function svc_criar_tabelas() {
         endereco TEXT,
         cidade VARCHAR(100),
         estado VARCHAR(100),
-        criado_em DATETIME DEFAULT CURRENT_TIMESTAMP
+        criado_em DATETIME DEFAULT CURRENT_TIMESTAMP,
+        PRIMARY KEY (id)
     ) $charset_collate;");
 
     // Tabela de currículos
     dbDelta("CREATE TABLE $t_curriculos (
-        id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+        id INT NOT NULL AUTO_INCREMENT,
         candidato_id INT NOT NULL,
         formacao TEXT,
         experiencia TEXT,
@@ -40,27 +41,30 @@ function svc_criar_tabelas() {
         idiomas TEXT,
         arquivo_curriculo VARCHAR(255),
         criado_em DATETIME DEFAULT CURRENT_TIMESTAMP,
+        PRIMARY KEY (id),
         FOREIGN KEY (candidato_id) REFERENCES $t_candidatos(id) ON DELETE CASCADE
     ) $charset_collate;");
 
     // Tabela de vagas
     dbDelta("CREATE TABLE $t_vagas (
-        id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+        id INT NOT NULL AUTO_INCREMENT,
         titulo VARCHAR(255) NOT NULL,
         descricao TEXT,
         requisitos TEXT,
         diferenciais TEXT,
         categoria VARCHAR(255),
-        criado_em DATETIME DEFAULT CURRENT_TIMESTAMP
+        criado_em DATETIME DEFAULT CURRENT_TIMESTAMP,
+        PRIMARY KEY (id)
     ) $charset_collate;");
 
     // Tabela de candidaturas
     dbDelta("CREATE TABLE $t_candidaturas (
-        id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+        id INT NOT NULL AUTO_INCREMENT,
         candidato_id INT NOT NULL,
         vaga_id INT NOT NULL,
         status VARCHAR(50) DEFAULT 'Recebido',
         data_candidatura DATETIME DEFAULT CURRENT_TIMESTAMP,
+        PRIMARY KEY (id),
         FOREIGN KEY (candidato_id) REFERENCES $t_candidatos(id) ON DELETE CASCADE,
         FOREIGN KEY (vaga_id) REFERENCES $t_vagas(id) ON DELETE CASCADE
     ) $charset_collate;");

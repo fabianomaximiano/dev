@@ -80,4 +80,56 @@ function svc_carregar_template_plugin($template) {
 /**
  * Carrega os shortcodes auxiliares do plugin (logout, menu do candidato, etc.)
  */
-require_once __DIR__ . '/shortcodes.php';
+add_filter('wp_nav_menu_args', function($args) {
+    // Garante sessão ativa
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+
+    // Verifica se a opção está habilitada e o candidato está logado
+    $ocultar_menu = get_option('svc_ocultar_menu_tema', false);
+    if ($ocultar_menu && !empty($_SESSION['candidato_id']) && $args['theme_location'] === 'primary') {
+        $args['menu'] = false; // Oculta menu do tema
+    }
+
+    return $args;
+}, 20);
+
+
+add_action('admin_menu', function() {
+    add_options_page('Configurações do Plugin SVC', 'Configurações SVC', 'manage_options', 'svc-config', 'svc_configuracoes_html');
+});
+
+function svc_configuracoes_html() {
+    ?>
+    <div class="wrap">
+        <h1>Configurações do Plugin SVC</h1>
+        <form method="post" action="options.php">
+            <?php
+            settings_fields('svc_config_group');
+            do_settings_sections('svc_config');
+            submit_button();
+            ?>
+        </form>
+    </div>
+    <?php
+}
+
+add_action('admin_init', function() {
+    register_setting('svc_config_group', 'svc_ocultar_menu_tema');
+
+    add_settings_section('svc_main', 'Ajustes Visuais', null, 'svc_config');
+
+    add_settings_field(
+        'svc_ocultar_menu_tema',
+        'Ocultar menu do tema (para candidatos logados)',
+        function() {
+            $valor = get_option('svc_ocultar_menu_tema');
+            echo '<input type="checkbox" name="svc_ocultar_menu_tema" value="1"' . checked(1, $valor, false) . '> Ativar';
+        },
+        'svc_config',
+        'svc_main'
+    );
+});
+
+

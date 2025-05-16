@@ -6,8 +6,10 @@ function svc_login_candidato() {
         return '<div class="alert alert-info">Você já está logado como administrador.</div>';
     }
 
-    if (!isset($_SESSION)) session_start();
+    if (session_status() === PHP_SESSION_NONE) session_start();
+
     global $wpdb;
+    $mensagem = '';
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'])) {
         $email = sanitize_email($_POST['email']);
@@ -20,7 +22,7 @@ function svc_login_candidato() {
         if ($candidato && password_verify($senha, $candidato->senha)) {
             $_SESSION['candidato_id'] = $candidato->id;
 
-            // Verifica se tem currículo
+            // Redireciona para currículo se ainda não tiver
             $curriculo = $wpdb->get_var($wpdb->prepare(
                 "SELECT id FROM {$wpdb->prefix}svc_curriculos WHERE candidato_id = %d", $candidato->id
             ));
@@ -29,26 +31,31 @@ function svc_login_candidato() {
             wp_redirect(site_url($url));
             exit;
         } else {
-            echo '<div class="alert alert-danger">E-mail ou senha inválidos.</div>';
+            $mensagem = '<div class="alert alert-danger mt-3">E-mail ou senha inválidos.</div>';
         }
     }
 
     ob_start(); ?>
-    <div class="container my-4">
-        <h2>Login do Candidato</h2>
-        <form method="post" class="needs-validation" novalidate>
-            <div class="form-group">
-                <label>Email</label>
-                <input type="email" name="email" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label>Senha</label>
-                <input type="password" name="senha" class="form-control" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Entrar</button>
-        </form>
-        <p class="mt-3">Não tem cadastro? <a href="<?php echo site_url('/cadastro-candidato'); ?>">Cadastre-se aqui</a></p>
-    </div>
+    
+    <form method="post" class="needs-validation" novalidate>
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label>Senha</label>
+            <input type="password" name="senha" class="form-control" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Entrar</button>
+        <div class="mt-3">
+            <a href="<?php echo site_url('/cadastro-candidato'); ?>">Cadastre-se</a> |
+            <a href="<?php echo site_url('/recuperar-senha'); ?>">Esqueceu a senha?</a>
+        </div>
+
+        <?php echo $mensagem; ?>
+    </form>
+
     <?php
     return ob_get_clean();
 }

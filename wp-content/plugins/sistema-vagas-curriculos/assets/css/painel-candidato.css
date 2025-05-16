@@ -1,0 +1,28 @@
+.menu-candidato {
+    padding-left: 0;
+}
+
+.menu-candidato li {
+    margin-bottom: 10px;
+}
+
+.menu-candidato li a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+    display: block;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.menu-candidato li a:hover {
+    background-color: #e9ecef;
+    text-decoration: none;
+}
+
+.menu-candidato li.active a {
+    background-color: #007bff;
+    color: #fff;
+    font-weight: 700;
+}

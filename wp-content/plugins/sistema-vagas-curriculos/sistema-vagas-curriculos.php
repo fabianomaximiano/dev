@@ -20,6 +20,10 @@ $arquivos = [
     '/includes/formulario-curriculo.php',
     '/includes/formulario-vaga.php',
     '/includes/listar-vagas.php',
+    '/includes/menu-dinamico.php',
+    'includes/admin-reinstar.php',
+
+
 ];
 
 foreach ($arquivos as $arquivo) {

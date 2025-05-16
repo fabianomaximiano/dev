@@ -3,48 +3,17 @@ document.addEventListener('DOMContentLoaded', function () {
     const cpfInput = form.querySelector('input[name="cpf"]');
     const telInput = form.querySelector('input[name="telefone"]');
     const cepInput = document.getElementById('cep');
-    const senhaInput = document.getElementById('senha');
-    const toggleSenha = document.getElementById('toggle-senha');
-    const msgErroCpf = document.getElementById('mensagem-erro-cpf');
-    const iconSenha = document.getElementById('icon-senha');
 
-    // Aplica máscaras usando jQuery Mask
     jQuery(function ($) {
         $('input[name="cpf"]').mask('000.000.000-00');
         $('input[name="telefone"]').mask('(00) 00000-0000');
         $('input[name="cep"]').mask('00000-000');
     });
 
-    // Toggle mostrar/ocultar senha
-    // if (toggleSenha) {
-    //     toggleSenha.addEventListener('click', function () {
-    //         if (senhaInput.type === 'password') {
-    //             senhaInput.type = 'text';
-    //             toggleSenha.textContent = 'Ocultar';
-    //         } else {
-    //             senhaInput.type = 'password';
-    //             toggleSenha.textContent = 'Mostrar';
-    //         }
-    //     });
-    // }
-
-    // Toggle mostrar/ocultar senha com ícone
-       
-
-        if (senhaInput && toggleSenha && iconSenha) {
-            toggleSenha.addEventListener('click', function () {
-                const isSenha = senhaInput.type === 'password';
-                senhaInput.type = isSenha ? 'text' : 'password';
-                iconSenha.classList.toggle('fa-eye');
-                iconSenha.classList.toggle('fa-eye-slash');
-            });
-        }
-
-
     // Validação de CPF
     function validarCPF(cpf) {
         cpf = cpf.replace(/[^\d]+/g, '');
-        if (cpf.length !== 11 || /^(\d)\1+$/.test(cpf)) return false;
+        if (cpf.length !== 11 || /^([0-9])\1+$/.test(cpf)) return false;
         for (let t = 9; t < 11; t++) {
             let d = 0;
             for (let i = 0; i < t; i++) {
@@ -66,14 +35,30 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!validarCPF(cpfInput.value)) {
             e.preventDefault();
             cpfInput.classList.add('is-invalid');
-            if (msgErroCpf) {
-                msgErroCpf.innerHTML = '<div class="alert alert-danger mt-3">CPF inválido. Verifique e tente novamente.</div>';
+            const alertaCPF = document.createElement('div');
+            alertaCPF.classList.add('alert', 'alert-danger', 'mt-3');
+            alertaCPF.textContent = "CPF inválido!";
+            if (!form.querySelector('.alert-danger')) {
+                form.appendChild(alertaCPF);
             }
         } else {
             cpfInput.classList.remove('is-invalid');
-            if (msgErroCpf) {
-                msgErroCpf.innerHTML = '';
-            }
+            const alertaExistente = form.querySelector('.alert-danger');
+            if (alertaExistente) alertaExistente.remove();
+        }
+
+        // Validação confirmação senha
+        const senhaInput = document.getElementById('senha');
+        const senhaConfirmInput = document.getElementById('senha_confirmacao');
+        const erroSenha = document.getElementById('erro-senha');
+
+        if (senhaInput.value !== senhaConfirmInput.value) {
+            e.preventDefault();
+            erroSenha.textContent = 'As senhas não conferem.';
+            senhaConfirmInput.classList.add('is-invalid');
+        } else {
+            erroSenha.textContent = '';
+            senhaConfirmInput.classList.remove('is-invalid');
         }
 
         form.classList.add('was-validated');
@@ -87,11 +72,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 .then(response => response.json())
                 .then(data => {
                     if (!data.erro) {
-                        document.getElementById('endereco').value = data.logradouro;
+                        document.getElementById('logradouro').value = data.logradouro;
                         document.getElementById('cidade').value = data.localidade;
                         document.getElementById('estado').value = data.uf;
 
-                        // Exibe campos ocultos
                         document.getElementById('grupo-endereco').classList.remove('d-none');
                         document.getElementById('grupo-cidade').classList.remove('d-none');
                         document.getElementById('grupo-estado').classList.remove('d-none');
@@ -100,30 +84,21 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
         }
     });
-});
 
+    // Toggle senha
+    const toggleSenha = document.getElementById('toggle-senha');
+    const senhaInput = document.getElementById('senha');
+    const iconSenha = document.getElementById('icon-senha');
 
-// Validação de senha forte e confirmação
-form.addEventListener('submit', function (e) {
-    const senha = senhaInput.value;
-    const senhaConfirmacao = document.getElementById('senha_confirmacao').value;
-    const erroSenha = document.getElementById('erro-senha');
-
-    const senhaForte = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
-
-    if (!senhaForte.test(senha)) {
-        e.preventDefault();
-        senhaInput.classList.add('is-invalid');
-        erroSenha.textContent = 'A senha deve conter no mínimo 8 caracteres, com letras maiúsculas, minúsculas, números e símbolos.';
-        erroSenha.style.display = 'block';
-    } else if (senha !== senhaConfirmacao) {
-        e.preventDefault();
-        senhaInput.classList.add('is-invalid');
-        erroSenha.textContent = 'As senhas não coincidem.';
-        erroSenha.style.display = 'block';
-    } else {
-        senhaInput.classList.remove('is-invalid');
-        erroSenha.textContent = '';
-        erroSenha.style.display = 'none';
-    }
+    toggleSenha.addEventListener('click', () => {
+        if (senhaInput.type === 'password') {
+            senhaInput.type = 'text';
+            iconSenha.classList.remove('fa-eye');
+            iconSenha.classList.add('fa-eye-slash');
+        } else {
+            senhaInput.type = 'password';
+            iconSenha.classList.remove('fa-eye-slash');
+            iconSenha.classList.add('fa-eye');
+        }
+    });
 });
