@@ -15,7 +15,10 @@ function svc_criar_tabelas() {
 
     require_once ABSPATH . 'wp-admin/includes/upgrade.php';
 
+<<<<<<< HEAD
     // Tabela de candidatos
+=======
+>>>>>>> 0a3742044acb5b206b82fc3e9cd14e40721ecb88
     dbDelta("CREATE TABLE $t_candidatos (
         id INT NOT NULL AUTO_INCREMENT,
         user_id BIGINT(20) UNSIGNED,
@@ -31,7 +34,6 @@ function svc_criar_tabelas() {
         PRIMARY KEY (id)
     ) $charset_collate;");
 
-    // Tabela de currículos
     dbDelta("CREATE TABLE $t_curriculos (
         id INT NOT NULL AUTO_INCREMENT,
         candidato_id INT NOT NULL,
@@ -45,7 +47,6 @@ function svc_criar_tabelas() {
         FOREIGN KEY (candidato_id) REFERENCES $t_candidatos(id) ON DELETE CASCADE
     ) $charset_collate;");
 
-    // Tabela de vagas
     dbDelta("CREATE TABLE $t_vagas (
         id INT NOT NULL AUTO_INCREMENT,
         titulo VARCHAR(255) NOT NULL,
@@ -57,7 +58,6 @@ function svc_criar_tabelas() {
         PRIMARY KEY (id)
     ) $charset_collate;");
 
-    // Tabela de candidaturas
     dbDelta("CREATE TABLE $t_candidaturas (
         id INT NOT NULL AUTO_INCREMENT,
         candidato_id INT NOT NULL,
@@ -68,35 +68,6 @@ function svc_criar_tabelas() {
         FOREIGN KEY (candidato_id) REFERENCES $t_candidatos(id) ON DELETE CASCADE,
         FOREIGN KEY (vaga_id) REFERENCES $t_vagas(id) ON DELETE CASCADE
     ) $charset_collate;");
-
-    // Páginas padrão do sistema
-    $paginas = [
-        'cadastro-candidato' => ['Cadastro de Candidato', '[formulario_candidato]'],
-        'meu-curriculo' => ['Cadastro de Currículo', '[formulario_curriculo]'],
-        'login-candidato' => ['Login do Candidato', '[login_candidato]'],
-        'painel-do-candidato' => ['Painel do Candidato', '[painel_candidato]'],
-        'cadastro-de-vagas' => ['Cadastro de Vagas', '[formulario_vaga]'],
-        'vagas-disponiveis' => ['Vagas Disponíveis', '[listar_vagas]'],
-    ];
-
-    foreach ($paginas as $slug => [$titulo, $shortcode]) {
-        $existe = get_page_by_path($slug);
-        if (!$existe) {
-            wp_insert_post([
-                'post_title'   => $titulo,
-                'post_name'    => $slug,
-                'post_status'  => 'publish',
-                'post_type'    => 'page',
-                'post_content' => $shortcode,
-            ]);
-        }
-    }
-
-    // Categorias padrão
-    svc_criar_categorias_padrao();
-
-    // Mensagem de sucesso
-    set_transient('svc_ativado_com_sucesso', true, 30);
 }
 
 /**
@@ -112,7 +83,49 @@ function svc_criar_categorias_padrao() {
 }
 
 /**
- * Exibe aviso após ativação
+ * Cria páginas padrão do sistema, caso não existam
+ */
+function svc_criar_paginas_automaticas() {
+    $paginas = [
+        'cadastro-candidato'    => ['Cadastro de Candidato', '[formulario_candidato]'],
+        'login-candidato'       => ['Login do Candidato', '[login_candidato]'],
+        'painel-do-candidato'   => ['Painel do Candidato', '[painel_candidato]'],
+        'meu-curriculo'         => ['Cadastro de Currículo', '[formulario_curriculo]'],
+        'cadastro-de-vagas'     => ['Cadastro de Vagas', '[formulario_vaga]'],
+        'vagas-disponiveis'     => ['Vagas Disponíveis', '[listar_vagas]'],
+        'recuperar-senha'       => ['Recuperar Senha', '[recuperar_senha]'],
+        'resetar-senha'         => ['Redefinir Senha', '[resetar_senha]'],
+        'logout-candidato'      => ['Sair', '[logout_candidato]'],
+        'editar-dados'          => ['Editar Dados Cadastrais', '[formulario_editar_dados]'],
+        'minhas-candidaturas'   => ['Minhas Candidaturas', '[minhas_candidaturas]'],
+    ];
+
+    foreach ($paginas as $slug => [$titulo, $shortcode]) {
+        if (null === get_page_by_path($slug)) {
+            wp_insert_post([
+                'post_title'   => $titulo,
+                'post_name'    => $slug,
+                'post_status'  => 'publish',
+                'post_type'    => 'page',
+                'post_content' => $shortcode,
+            ]);
+        }
+    }
+}
+
+/**
+ * Função principal que roda toda a instalação/ativação
+ */
+function svc_instalacao_completa() {
+    svc_criar_tabelas();
+    svc_criar_categorias_padrao();
+    svc_criar_paginas_automaticas();
+
+    set_transient('svc_ativado_com_sucesso', true, 30);
+}
+
+/**
+ * Mensagem administrativa após ativação
  */
 add_action('admin_notices', function () {
     if (get_transient('svc_ativado_com_sucesso')) {
@@ -120,10 +133,3 @@ add_action('admin_notices', function () {
         delete_transient('svc_ativado_com_sucesso');
     }
 });
-
-/**
- * Função chamada no momento da ativação do plugin
- */
-function svc_instalacao_completa() {
-    svc_criar_tabelas();
-}

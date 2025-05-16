@@ -1,5 +1,4 @@
 <?php
-// Impede acesso direto ao arquivo
 if (!defined('ABSPATH')) exit;
 
 /**
@@ -25,31 +24,51 @@ add_action('wp_enqueue_scripts', function () {
     // JS de validação personalizado
     wp_enqueue_script('validacao-js', plugin_dir_url(__DIR__) . 'assets/js/validacao.js', ['jquery'], null, true);
 
-    //js responsavel pela validaçao do formulario.php
-    wp_enqueue_script('svc-formularios-js', plugin_dir_url(__FILE__) . '../assets/js/formularios.js', ['jquery'], null, true);
+    // JS responsável pela validação do formulario.php
+    wp_enqueue_script('svc-formularios-js', plugin_dir_url(__DIR__) . 'assets/js/formularios.js', ['jquery'], null, true);
 
+    // Font Awesome
     wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
 
-    // Estilo customizado
+    // JS customizado
+    wp_enqueue_script('svc-formularios-js', plugin_dir_url(__DIR__) . 'assets/js/formularios.js', ['jquery'], null, true);
+
+    // Estilo customizado geral
     wp_enqueue_style('svc-style', plugin_dir_url(__DIR__) . 'assets/css/style.css');
+
+    // CSS específico do painel candidato - só carrega nas páginas internas do painel
+    if (isset($_GET['pagina'])) {
+        $paginas_painel = ['meu-curriculo', 'minhas-candidaturas', 'editar-cadastro', 'alterar-senha'];
+        if (in_array($_GET['pagina'], $paginas_painel)) {
+            wp_enqueue_style(
+                'painel-candidato',
+                plugin_dir_url(__DIR__) . 'assets/css/painel-candidato.css',
+                [],
+                '1.0'
+            );
+        }
+    }
 });
 
 /**
  * Remove páginas internas dos menus automáticos (caso o tema use wp_list_pages)
  */
-add_filter('get_pages', function ($pages, $args) {
+add_filter('get_pages', function ($pages) {
     $ocultar_slugs = [
         'meu-curriculo',
-        'logout-candidato',
-        'cadastro-candidato',
         'login-candidato',
-        'painel-do-candidato'
+        'cadastro-candidato',
+        'cadastro-de-vagas',
+        'painel-do-candidato',
+        'logout-candidato',
+        'recuperar-senha',
+        'resetar-senha'
     ];
 
     return array_filter($pages, function ($page) use ($ocultar_slugs) {
         return !in_array($page->post_name, $ocultar_slugs);
     });
-}, 10, 2);
+});
 
 /**
  * Registra templates personalizados do plugin
@@ -80,56 +99,50 @@ function svc_carregar_template_plugin($template) {
 /**
  * Carrega os shortcodes auxiliares do plugin (logout, menu do candidato, etc.)
  */
-add_filter('wp_nav_menu_args', function($args) {
-    // Garante sessão ativa
-    if (session_status() === PHP_SESSION_NONE) {
-        session_start();
+require_once __DIR__ . '/shortcodes.php';
+
+/**
+ * Adiciona itens dinâmicos ao menu principal (Painel, Sair, Login, Cadastro)
+ */
+add_filter('wp_nav_menu_items', 'svc_adicionar_itens_menu_logout', 10, 2);
+function svc_adicionar_itens_menu_logout($items, $args) {
+    if (session_status() === PHP_SESSION_NONE) session_start();
+
+    // Verifica se é o menu principal
+    if ($args->theme_location === 'primary' || $args->menu === 'menu-principal') {
+        // Se o candidato estiver logado, adiciona "Painel" e "Sair"
+        if (!empty($_SESSION['candidato_id'])) {
+            $painel = '<li class="menu-item"><a href="' . site_url('/painel-do-candidato') . '">Painel</a></li>';
+            $sair   = '<li class="menu-item"><a href="' . site_url('/logout-candidato') . '">Sair</a></li>';
+            $items .= $painel . $sair;
+        } else {
+            // Caso contrário, exibe Login
+            $login = '<li class="menu-item"><a href="' . site_url('/login-candidato') . '">Login</a></li>';
+            $items .= $login;
+        }
     }
 
-    // Verifica se a opção está habilitada e o candidato está logado
-    $ocultar_menu = get_option('svc_ocultar_menu_tema', false);
-    if ($ocultar_menu && !empty($_SESSION['candidato_id']) && $args['theme_location'] === 'primary') {
-        $args['menu'] = false; // Oculta menu do tema
-    }
-
-    return $args;
-}, 20);
-
-
-add_action('admin_menu', function() {
-    add_options_page('Configurações do Plugin SVC', 'Configurações SVC', 'manage_options', 'svc-config', 'svc_configuracoes_html');
-});
-
-function svc_configuracoes_html() {
-    ?>
-    <div class="wrap">
-        <h1>Configurações do Plugin SVC</h1>
-        <form method="post" action="options.php">
-            <?php
-            settings_fields('svc_config_group');
-            do_settings_sections('svc_config');
-            submit_button();
-            ?>
-        </form>
-    </div>
-    <?php
+    return $items;
 }
 
-add_action('admin_init', function() {
-    register_setting('svc_config_group', 'svc_ocultar_menu_tema');
+add_filter('wp_nav_menu_items', 'svc_itens_menu_dinamico', 10, 2);
+function svc_itens_menu_dinamico($items, $args) {
+    if (session_status() === PHP_SESSION_NONE) session_start();
 
-    add_settings_section('svc_main', 'Ajustes Visuais', null, 'svc_config');
+    // Apenas no menu principal
+    if ($args->theme_location === 'primary') {
+        if (!empty($_SESSION['candidato_id'])) {
+            // Adiciona itens para usuários logados
+            $painel = '<li class="menu-item"><a href="' . site_url('/painel-do-candidato') . '">Painel</a></li>';
+            $logout = '<li class="menu-item"><a href="' . site_url('/logout-candidato') . '">Sair</a></li>';
+            $items .= $painel . $logout;
+        } else {
+            // Adiciona itens para visitantes
+            $login = '<li class="menu-item"><a href="' . site_url('/login-candidato') . '">Login</a></li>';
+            $cadastro = '<li class="menu-item"><a href="' . site_url('/cadastro-candidato') . '">Cadastre-se</a></li>';
+            $items .= $login . $cadastro;
+        }
+    }
 
-    add_settings_field(
-        'svc_ocultar_menu_tema',
-        'Ocultar menu do tema (para candidatos logados)',
-        function() {
-            $valor = get_option('svc_ocultar_menu_tema');
-            echo '<input type="checkbox" name="svc_ocultar_menu_tema" value="1"' . checked(1, $valor, false) . '> Ativar';
-        },
-        'svc_config',
-        'svc_main'
-    );
-});
-
-
+    return $items;
+}

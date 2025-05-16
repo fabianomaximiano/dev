@@ -28,14 +28,12 @@ function svc_formulario_candidato() {
         $existe = $wpdb->get_var($wpdb->prepare("SELECT id FROM $tabela WHERE cpf = %s", $cpf));
 
         if ($existe) {
-            $mensagem = "<div class='alert alert-danger mt-3'>CPF já cadastrado!</div>";
-        } elseif (!preg_match('/^(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/', $senha)) {
-            $mensagem = "<div class='alert alert-danger mt-3'>A senha deve ter no mínimo 8 caracteres, com letra maiúscula, número e símbolo.</div>";
-        } elseif ($senha !== $senha_conf) {
-            $mensagem = "<div class='alert alert-danger mt-3'>As senhas não conferem.</div>";
-        } else {
-            $endereco_completo = $logradouro . ', ' . $numero;
+            $mensagem = "<div class='alert alert-danger'>CPF já cadastrado!</div>";
+        }
 
+        if (!preg_match('/^(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/', $senha)) {
+            $mensagem = "<div class='alert alert-danger'>A senha deve ter no mínimo 8 caracteres, com letra maiúscula, número e símbolo.</div>";
+        }else {
             $wpdb->insert($tabela, [
                 'nome_completo' => $nome,
                 'cpf'           => $cpf,
@@ -57,22 +55,23 @@ function svc_formulario_candidato() {
     <form method="post" class="needs-validation" novalidate>
         <div class="form-group">
             <label>Nome completo</label>
-            <input type="text" name="nome_completo" class="form-control" required value="<?php echo esc_attr($_POST['nome_completo'] ?? ''); ?>">
+            <input type="text" name="nome_completo" class="form-control" required value="<?php echo isset($_POST['nome_completo']) ? esc_attr($_POST['nome_completo']) : ''; ?>">
+
         </div>
 
         <div class="form-group">
             <label>CPF</label>
-            <input type="text" name="cpf" id="cpf" class="form-control" required value="<?php echo esc_attr($_POST['cpf'] ?? ''); ?>">
+            <input type="text" name="cpf" id="cpf" class="form-control" required value="<?php echo isset($_POST['cpf']) ? esc_attr($_POST['cpf']) : ''; ?>">
         </div>
 
         <div class="form-group">
             <label>Email</label>
-            <input type="email" name="email" class="form-control" required value="<?php echo esc_attr($_POST['email'] ?? ''); ?>">
+            <input type="email" name="email" class="form-control" required value="<?php echo isset($_POST['email']) ? esc_attr($_POST['email']) : ''; ?>">
         </div>
 
         <div class="form-group">
             <label>Telefone</label>
-            <input type="text" name="telefone" id="telefone" class="form-control" required value="<?php echo esc_attr($_POST['telefone'] ?? ''); ?>">
+            <input type="text" name="telefone" id="telefone" class="form-control" required value="<?php echo isset($_POST['telefone']) ? esc_attr($_POST['telefone']) : ''; ?>">
         </div>
 
         <div class="form-group">
@@ -95,27 +94,28 @@ function svc_formulario_candidato() {
 
         <div class="form-group">
             <label>CEP</label>
-            <input type="text" name="cep" id="cep" class="form-control" required value="<?php echo esc_attr($_POST['cep'] ?? ''); ?>">
+            <input type="text" name="cep" id="cep" class="form-control" required value="<?php echo isset($_POST['cep']) ? esc_attr($_POST['cep']) : ''; ?>">
         </div>
 
         <div class="form-group d-none" id="grupo-endereco">
             <label>Endereço</label>
-            <input type="text" name="logradouro" id="logradouro" class="form-control" readonly value="<?php echo esc_attr($_POST['logradouro'] ?? ''); ?>">
+            <input type="text" name="endereco" id="endereco" class="form-control" required value="<?php echo isset($_POST['endereco']) ? esc_attr($_POST['endereco']) : ''; ?>">
         </div>
 
         <div class="form-group d-none" id="grupo-numero">
             <label>Número</label>
-            <input type="text" name="numero" id="numero" class="form-control" required value="<?php echo esc_attr($_POST['numero'] ?? ''); ?>">
+            <input type="text" name="numero" id="numero" class="form-control" required value="<?php echo isset($_POST['numero']) ? esc_attr($_POST['numero']) : ''; ?>">
+            <input type="hidden" name="logradouro" id="logradouro" required value="<?php echo isset($_POST['logradouro']) ? esc_attr($_POST['logradouro']) : ''; ?>">
         </div>
 
         <div class="form-group d-none" id="grupo-cidade">
             <label>Cidade</label>
-            <input type="text" name="cidade" id="cidade" class="form-control" readonly value="<?php echo esc_attr($_POST['cidade'] ?? ''); ?>">
+            <input type="text" name="cidade" id="cidade" class="form-control" required value="<?php echo isset($_POST['cidade']) ? esc_attr($_POST['cidade']) : ''; ?>">
         </div>
 
         <div class="form-group d-none" id="grupo-estado">
             <label>Estado</label>
-            <input type="text" name="estado" id="estado" class="form-control" readonly value="<?php echo esc_attr($_POST['estado'] ?? ''); ?>">
+            <input type="text" name="estado" id="estado" class="form-control" required value="<?php echo isset($_POST['estado']) ? esc_attr($_POST['estado']) : ''; ?>">
         </div>
 
         <button type="submit" class="btn btn-primary">Cadastrar</button>

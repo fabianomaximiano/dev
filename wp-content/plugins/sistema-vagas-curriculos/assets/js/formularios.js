@@ -102,3 +102,30 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+<<<<<<< HEAD
+=======
+
+
+function validarSenha(senha) {
+    const regex = /^(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
+    return regex.test(senha);
+}
+
+form.addEventListener('submit', function (e) {
+    // ... CPF etc
+
+    const senhaInput = form.querySelector('input[name="senha"]');
+    const senha = senhaInput.value;
+    const erroSenha = document.getElementById('erro-senha');
+
+    if (!validarSenha(senha)) {
+        e.preventDefault();
+        senhaInput.classList.add('is-invalid');
+        erroSenha.classList.remove('d-none');
+        erroSenha.innerText = 'A senha deve ter no mínimo 8 caracteres, com letra maiúscula, número e símbolo.';
+    } else {
+        senhaInput.classList.remove('is-invalid');
+        erroSenha.classList.add('d-none');
+    }
+});
+>>>>>>> 0a3742044acb5b206b82fc3e9cd14e40721ecb88

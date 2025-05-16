@@ -36,6 +36,7 @@ function svc_login_candidato() {
     }
 
     ob_start(); ?>
+<<<<<<< HEAD
     
     <form method="post" class="needs-validation" novalidate>
         <div class="form-group">
@@ -56,6 +57,28 @@ function svc_login_candidato() {
         <?php echo $mensagem; ?>
     </form>
 
+=======
+    <div class="container my-4">
+        <h2>Login do Candidato</h2>
+        <form method="post" class="needs-validation" novalidate>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="email" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>Senha</label>
+                <input type="password" name="senha" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Entrar</button>
+        </form>
+        <!-- <p class="mt-3">Não tem cadastro? <a href="<?php //echo site_url('/cadastro-candidato'); ?>">Cadastre-se aqui</a></p> -->
+        <small>
+            Não tem uma conta? <a href="<?php echo site_url('cadastro-candidato'); ?>">Cadastre-se</a> |
+            <a href="<?php echo site_url('/recuperar-senha'); ?>">Esqueceu a senha?</a>
+        </small>
+
+    </div>
+>>>>>>> 0a3742044acb5b206b82fc3e9cd14e40721ecb88
     <?php
     return ob_get_clean();
 }
