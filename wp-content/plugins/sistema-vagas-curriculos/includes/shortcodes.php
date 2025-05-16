@@ -1,50 +1,52 @@
 <?php
-if (!defined('ABSPATH')) exit;
+// Bloqueia acesso direto ao arquivo
+if (!defined('ABSPATH')) {
+    exit;
+}
 
-/**
- * Shortcode: [menu_candidato]
- * Exibe o menu dinâmico de acordo com o estado do login do candidato
- */
-add_shortcode('menu_candidato', 'svc_menu_candidato_shortcode');
+// Shortcode para exibir o menu do candidato
+function svc_menu_candidato_shortcode()
+{
+    if (!is_user_logged_in()) {
+        return '<div class="alert alert-warning">Você precisa estar logado para acessar esta área.</div>';
+    }
 
-function svc_menu_candidato_shortcode() {
-    if (session_status() === PHP_SESSION_NONE) session_start();
+    $user_id = get_current_user_id();
+    global $wpdb;
+    $tabela_candidatos = $wpdb->prefix . 'svc_candidatos';
+    $candidato = $wpdb->get_row($wpdb->prepare("SELECT * FROM $tabela_candidatos WHERE user_id = %d", $user_id));
 
-    ob_start(); ?>
-    <ul class="nav justify-content-center my-3">
-        <li class="nav-item"><a class="nav-link" href="<?php echo site_url('/vagas-disponiveis'); ?>">Vagas</a></li>
+    if (!$candidato) {
+        return '<div class="alert alert-info">Complete seu cadastro para acessar o menu do candidato.</div>';
+    }
 
-        <?php if (!empty($_SESSION['candidato_id'])) : ?>
-            <li class="nav-item"><a class="nav-link" href="<?php echo site_url('/painel-do-candidato'); ?>">Painel</a></li>
-            <li class="nav-item"><a class="nav-link" href="<?php echo site_url('/logout-candidato'); ?>">Sair</a></li>
-        <?php else : ?>
-            <li class="nav-item"><a class="nav-link" href="<?php echo site_url('/login-candidato'); ?>">Login</a></li>
-            <li class="nav-item"><a class="nav-link" href="<?php echo site_url('/cadastro-candidato'); ?>">Cadastrar-se</a></li>
-        <?php endif; ?>
-
-        <?php if (current_user_can('manage_options')) : ?>
-            <li class="nav-item"><a class="nav-link" href="<?php echo admin_url(); ?>">Admin</a></li>
-        <?php endif; ?>
-    </ul>
+    ob_start();
+    ?>
+    <div class="container my-4">
+        <div class="card shadow-sm rounded-2xl">
+            <div class="card-body">
+                <h5 class="card-title mb-4">Painel do Candidato</h5>
+                <div class="list-group">
+                    <a href="<?php echo esc_url(site_url('/meu-curriculo')); ?>" class="list-group-item list-group-item-action">
+                        <i class="bi bi-person-lines-fill"></i> Meu Currículo
+                    </a>
+                    <a href="<?php echo esc_url(site_url('/minhas-candidaturas')); ?>" class="list-group-item list-group-item-action">
+                        <i class="bi bi-list-check"></i> Minhas Candidaturas
+                    </a>
+                    <a href="<?php echo esc_url(site_url('/editar-cadastro')); ?>" class="list-group-item list-group-item-action">
+                        <i class="bi bi-pencil-square"></i> Editar Cadastro
+                    </a>
+                    <a href="<?php echo esc_url(site_url('/alterar-senha')); ?>" class="list-group-item list-group-item-action">
+                        <i class="bi bi-shield-lock"></i> Alterar Senha
+                    </a>
+                    <a href="<?php echo esc_url(wp_logout_url(home_url())); ?>" class="list-group-item list-group-item-action text-danger">
+                        <i class="bi bi-box-arrow-right"></i> Sair
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
     <?php
     return ob_get_clean();
 }
-
-/**
- * Shortcode: [logout_candidato]
- * Realiza logout do candidato e redireciona para a página de login
- */
-add_shortcode('logout_candidato', 'svc_logout_candidato');
-
-function svc_logout_candidato() {
-    if (session_status() === PHP_SESSION_NONE) session_start();
-
-    if (isset($_SESSION['candidato_id'])) {
-        unset($_SESSION['candidato_id']);
-        session_destroy();
-    }
-
-    wp_redirect(site_url('/login-candidato'));
-    exit;
-}
-// Conteúdo de exemplo para shortcodes.php
+add_shortcode('menu_candidato', 'svc_menu_candidato_shortcode');

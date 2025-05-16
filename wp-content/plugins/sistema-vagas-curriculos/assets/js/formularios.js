@@ -103,27 +103,25 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-// Validação de senha forte e confirmação
+function validarSenha(senha) {
+    const regex = /^(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
+    return regex.test(senha);
+}
+
 form.addEventListener('submit', function (e) {
+    // ... CPF etc
+
+    const senhaInput = form.querySelector('input[name="senha"]');
     const senha = senhaInput.value;
-    const senhaConfirmacao = document.getElementById('senha_confirmacao').value;
     const erroSenha = document.getElementById('erro-senha');
 
-    const senhaForte = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
-
-    if (!senhaForte.test(senha)) {
+    if (!validarSenha(senha)) {
         e.preventDefault();
         senhaInput.classList.add('is-invalid');
-        erroSenha.textContent = 'A senha deve conter no mínimo 8 caracteres, com letras maiúsculas, minúsculas, números e símbolos.';
-        erroSenha.style.display = 'block';
-    } else if (senha !== senhaConfirmacao) {
-        e.preventDefault();
-        senhaInput.classList.add('is-invalid');
-        erroSenha.textContent = 'As senhas não coincidem.';
-        erroSenha.style.display = 'block';
+        erroSenha.classList.remove('d-none');
+        erroSenha.innerText = 'A senha deve ter no mínimo 8 caracteres, com letra maiúscula, número e símbolo.';
     } else {
         senhaInput.classList.remove('is-invalid');
-        erroSenha.textContent = '';
-        erroSenha.style.display = 'none';
+        erroSenha.classList.add('d-none');
     }
 });

@@ -47,7 +47,12 @@ function svc_login_candidato() {
             </div>
             <button type="submit" class="btn btn-primary">Entrar</button>
         </form>
-        <p class="mt-3">Não tem cadastro? <a href="<?php echo site_url('/cadastro-candidato'); ?>">Cadastre-se aqui</a></p>
+        <!-- <p class="mt-3">Não tem cadastro? <a href="<?php //echo site_url('/cadastro-candidato'); ?>">Cadastre-se aqui</a></p> -->
+        <small>
+            Não tem uma conta? <a href="<?php echo site_url('cadastro-candidato'); ?>">Cadastre-se</a> |
+            <a href="<?php echo site_url('/recuperar-senha'); ?>">Esqueceu a senha?</a>
+        </small>
+
     </div>
     <?php
     return ob_get_clean();
